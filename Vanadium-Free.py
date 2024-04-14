@@ -18,15 +18,19 @@ try:
     import re
     from datetime import datetime
     import threading
-except:
+except ModuleNotFoundError:
     print('Some libs ware not found, downloading them now')
-    os.system('pip uninstall websockets')
+    os.system('pip uninstall -y websockets'); os.system('pip uninstall -y websocket')
     for lib in ['websocket-client', 'colorama', 'requests', 'tls-client', 'datetime']:
         print(f'Installing {lib}')
         os.system(f'pip install -q {lib}')
-        print(f'Installed {lib}')
     print('All done! please rerun')
     time.sleep(2.5)
+    sys.exit()
+except Exception as e:
+    input(f'Error while importing {e}')
+    time.sleep(2.5)
+    sys.exit()
 
 main_name = 'Vanadium V1 - FREE'
 
@@ -100,8 +104,8 @@ class cmd:
         with open(f"data\\proxies.txt", "r") as f:
             prx_amt = sum(1 for _ in f)
 
-        menu2 = f'''{cmd.r}  
-{f'U are currently using the free version, buy full/premium on dsc.gg/vanadium !'.center(size)}
+        menu2 = f'''{cmd.r} 
+{f'U are currently using the free version, buy full/premium on dsc.gg/vanadium !'.center(size)} 
 {f'██╗   ██╗ █████╗ ███╗   ██╗ █████╗ ██████╗ ██╗██╗   ██╗███╗   ███╗'.center(size)}
 {f'██║   ██║██╔══██╗████╗  ██║██╔══██╗██╔══██╗██║██║   ██║████╗ ████║'.center(size)}
 {f'██║   ██║███████║██╔██╗ ██║███████║██║  ██║██║██║   ██║██╔████╔██║'.center(size)} 
@@ -111,11 +115,11 @@ class cmd:
 {f'(*) - Combo tokens needed      (#) - Beta feature      (!) - Can be token harming'.center(size)}
 {f'Tokens loaded - [ {token_amt} ]      Combo tokens loaded - [ {combo_amt} ]      Proxies loaded - [ {prx_amt} ]'.center(size)}
 {f''.center(size)}
-{f'  [ 28 ] - Poll spammer (#)    [ 35 ] - None                   [ 42 ] - None                 [ 49 ] - None            '.center(size)}
-{f'  [ 29 ] - Poll voter (#)      [ 36 ] - None                   [ 43 ] - None                 [ 50 ] - None            '.center(size)} 
-{f'  [ 30 ] - Message fetcher     [ 37 ] - None                   [ 44 ] - None                 [ 51 ] - None            '.center(size)}
+{f'  [ 28 ] - Poll spammer (#)    [ 35 ] - Account nuker          [ 42 ] - Invite maker         [ 49 ] - Webhook spammer '.center(size)}
+{f'  [ 29 ] - Poll voter (#)      [ 36 ] - Log out                [ 43 ] - Server nuker         [ 50 ] - Webhook editor  '.center(size)} 
+{f'  [ 30 ] - Everywheare messager[ 37 ] - Log in                 [ 44 ] - Member fetcher       [ 51 ] - Webhook deleater'.center(size)}
 {f'  [ 31 ] - Message listener    [ 38 ] - None                   [ 45 ] - None                 [ 52 ] - None            '.center(size)}
-{f'  [ 32 ] - Invite maker        [ 39 ] - None                   [ 46 ] - None                 [ 53 ] - None            '.center(size)}
+{f'  [ 32 ] - None                [ 39 ] - None                   [ 46 ] - None                 [ 53 ] - None            '.center(size)}
 {f'  [ 33 ] - None                [ 40 ] - None                   [ 47 ] - None                 [ 54 ] - None            '.center(size)}
 {f'  [ 34 ] - None                [ 41 ] - None                   [ 48 ] - None                 [ << ] - Previous page   '.center(size)}
 '''
@@ -442,24 +446,39 @@ class get:
         return random_string
 
 # still working on making them bypass well :(
+chrome_version = random.randint(115, 120)
 class HeaderFactoryReal:
     def __init__(self):
-        self.ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) discord/1.0.9038 Chrome/120.0.6099.291 Electron/28.2.7 Safari/537.36'
-        self.xsup = 'eyJvcyI6IldpbmRvd3MiLCJicm93c2VyIjoiRGlzY29yZCBDbGllbnQiLCJyZWxlYXNlX2NoYW5uZWwiOiJzdGFibGUiLCJjbGllbnRfdmVyc2lvbiI6IjEuMC45MDM4Iiwib3NfdmVyc2lvbiI6IjEwLjAuMTkwNDUiLCJvc19hcmNoIjoieDY0IiwiYXBwX2FyY2giOiJpYTMyIiwic3lzdGVtX2xvY2FsZSI6ImVuLUdCIiwiYnJvd3Nlcl91c2VyX2FnZW50IjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV09XNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIGRpc2NvcmQvMS4wLjkwMzggQ2hyb21lLzEyMC4wLjYwOTkuMjkxIEVsZWN0cm9uLzI4LjIuNyBTYWZhcmkvNTM3LjM2IiwiYnJvd3Nlcl92ZXJzaW9uIjoiMjguMi43IiwiY2xpZW50X2J1aWxkX251bWJlciI6Mjc5Njg3LCJuYXRpdmVfYnVpbGRfbnVtYmVyIjo0NTUyNCwiY2xpZW50X2V2ZW50X3NvdXJjZSI6bnVsbH0='
+        self.ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) discord/1.0.9041 Chrome/120.0.6099.291 Electron/28.2.10 Safari/537.36'
+        self.xsup = 'eyJvcyI6IldpbmRvd3MiLCJicm93c2VyIjoiRGlzY29yZCBDbGllbnQiLCJyZWxlYXNlX2NoYW5uZWwiOiJzdGFibGUiLCJjbGllbnRfdmVyc2lvbiI6IjEuMC45MDQxIiwib3NfdmVyc2lvbiI6IjEwLjAuMTkwNDUiLCJvc19hcmNoIjoieDY0IiwiYXBwX2FyY2giOiJpYTMyIiwic3lzdGVtX2xvY2FsZSI6ImVuLUdCIiwiYnJvd3Nlcl91c2VyX2FnZW50IjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV09XNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIGRpc2NvcmQvMS4wLjkwNDEgQ2hyb21lLzEyMC4wLjYwOTkuMjkxIEVsZWN0cm9uLzI4LjIuMTAgU2FmYXJpLzUzNy4zNiIsImJyb3dzZXJfdmVyc2lvbiI6IjI4LjIuMTAiLCJjbGllbnRfYnVpbGRfbnVtYmVyIjoyODQxODcsIm5hdGl2ZV9idWlsZF9udW1iZXIiOjQ2MzU1LCJjbGllbnRfZXZlbnRfc291cmNlIjpudWxsfQ=='
         cmd.log('HEADERS', 'Getting cookies...')
         self.cookies = get.cookies()
 
-    def get(self, token=None):
+    def calculate(data):
+        data = json.dumps(data, separators=(',', ':'))
+        return len(data.encode('utf-8'))
+
+    def get(self, token=None, data=None):
         headers = {
-            "accept-language": "en-GB",
-            "user-agent": self.ua,
-            "cookie": self.cookies,
-            "x-discord-locale": "en-US",
-            "x-discord-timezone": "Europe/Warsaw",
-            "x-super-properties": self.xsup
+            "Accept": "*/*",
+            "Accept-language": "en-GB,pl;q=0.9",
+            "Authorization": token,
+            #"Content-Length": HeaderFactoryReal.calculate(data),
+            "Cookie": self.cookies,
+            "Origin": "https://discord.com",
+            "Sec-Ch-Ua": f'"Not_A Brand";v="8", "Chromium";v="{chrome_version}"',
+            "Sec-Ch-Ua-Platform": '"Windows',
+            "User-agent": self.ua,
+            "X-Discord-Locale": "en-US",
+            "X-Discord-Timezone": "Europe/Warsaw",
+            "X-Super-Properties": self.xsup
         }
-        if token is not None:
-            headers["authorization"] = token
+        if token is None:
+            headers.pop("Authorization", None)
+        if data is None:
+            headers.pop("Content-Length", None)
+
+        cmd.dbg(headers)
         return headers
 
 headers = HeaderFactoryReal()
@@ -484,7 +503,7 @@ thread.single(get_user_id, get.tokens())
 
 
 def session():
-    session = tls_client.Session(client_identifier=f'chrome_{random.randint(110, 120)}', random_tls_extension_order=True)
+    session = tls_client.Session(client_identifier=f'chrome_{chrome_version}', random_tls_extension_order=True)
     return session
 
 class tool: 
@@ -667,7 +686,7 @@ class tool:
                 r = ss.post(
                     f"https://discord.com/api/v9/invites/{invite_regex}",
                     json=payload,
-                    headers=headers.get(token)
+                    headers=headers.get(token, payload)
                 )
                 cmd.dbg('JOINER', r.status_code, r.text)
                 if r.status_code == 200:
@@ -715,7 +734,7 @@ class tool:
                 r = ss.delete(
                     f"https://discord.com/api/v9/users/@me/guilds/{guildid}",
                     json=payload,
-                    headers=headers.get(token)
+                    headers=headers.get(token, payload)
                 )
                 cmd.dbg('LEAVER', r.status_code, r.text)
                 if r.status_code == 204:
@@ -776,7 +795,7 @@ class tool:
                 r = ss.delete(
                     f"https://discord.com/api/v9/users/@me/guilds/{guildid}",
                     json=payload,
-                    headers=headers.get(token)
+                    headers=headers.get(token, payload)
                 )
                 cmd.dbg('MASSLEAVE LEAVER', r.status_code, r.text)
                 if r.status_code == 204:
@@ -825,6 +844,7 @@ class tool:
 
     class checker:      
         def check_token(token, keep):
+            valid = False
             ss = session()
             r = ss.get(
                 f"https://discord.com/api/v9/users/@me",
@@ -868,6 +888,7 @@ class tool:
                         f.write(token + '\n')
 
         def check_combo(email, passw, token, keep):
+            valid = False
             ss = session()
             r = ss.get(
                 f"https://discord.com/api/v9/users/@me",
@@ -919,18 +940,12 @@ class tool:
             dupes = cmd.askyn('REMOVE DUPLICATES')
             keep = cmd.askyn('KEEP VALID ONLY')
             if dupes:
-                if config.prefer_combo_tokens():
-                    with open('data\\combo_tokens.txt', 'r') as f:
-                        unique = set(line.strip() for line in f)
-
-                    with open('data\\combo_tokens.txt', 'w') as f:
-                        f.writelines(unique)
-                else:
-                    with open('data\\tokens.txt', 'r') as f:
-                        unique = set(line.strip() for line in f)
-
-                    with open('data\\tokens.txt', 'w') as f:
-                        f.writelines(unique)  
+                filename = 'data\\combo_tokens.txt' if config.prefer_combo_tokens() else 'data\\tokens.txt'
+                with open(filename, 'r') as f:
+                    lines = set(f.readlines())
+                    
+                with open(filename, 'w') as f:
+                    f.writelines(line.strip() + '\n' for line in lines) 
             if keep:
                 if config.prefer_combo_tokens():
                     cmd.log('CHECKER', 'Combo mode is selected, tokens will be saved to combo_tokens.txt (COMBO CHECKS ARE NOT THREADED)')
@@ -959,7 +974,7 @@ class tool:
                 }
                 r = ss.post(
                     f"https://discord.com/api/v9/channels/{channelid}/messages",
-                    headers=headers.get(token),
+                    headers=headers.get(token, payload),
                     json=payload
                 )
                 cmd.dbg('SZPAMMER', r.status_code, r.text)
@@ -1167,7 +1182,7 @@ EXAMPLE ~> Raided (ping=5) real (str=100) sigmaer (emoji=11)
                     }
                     r = ss.post(
                         f"https://discord.com/api/v9/channels/{channelid}/threads",
-                        headers=headers.get(token),
+                        headers=headers.get(token, payload),
                         json=payload
                     )
                     cmd.dbg('THREAD SPAMMMER', r.status_code, r.text)
@@ -1211,7 +1226,7 @@ EXAMPLE ~> Raided (ping=5) real (str=100) sigmaer (emoji=11)
                     }
                     r = ss.post(
                         f"https://discord.com/api/v9/channels/{channelid}/threads?use_nested_fields=true",
-                        headers=headers.get(token),
+                        headers=headers.get(token, payload),
                         json=payload
                     )
                     cmd.dbg('FORUM SPAMMMER', r.status_code, r.text)
@@ -1303,7 +1318,7 @@ EXAMPLE ~> Raided (ping=5) real (str=100) sigmaer (emoji=11)
                 }
                 r = ss.post(
                     f"https://discord.com/api/v9/channels/{channelid}/send-soundboard-sound",
-                    headers=headers.get(token),
+                    headers=headers.get(token, payload),
                     json=payload
                 )
                 cmd.dbg('SOUNDBOARD SPAM', r.status_code, r.text)
@@ -1386,7 +1401,7 @@ EXAMPLE ~> Raided (ping=5) real (str=100) sigmaer (emoji=11)
                 ss = session()
                 r = ss.post(
                     f"https://discord.com/api/v9/channels/{channelid}/messages",
-                    headers=headers.get(token),
+                    headers=headers.get(token, payload),
                     json=payload
                 )
                 cmd.dbg('MASS RESPOND', r.status_code, r.text)
