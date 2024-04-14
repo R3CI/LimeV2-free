@@ -943,9 +943,9 @@ class tool:
                 filename = 'data\\combo_tokens.txt' if config.prefer_combo_tokens() else 'data\\tokens.txt'
                 with open(filename, 'r') as f:
                     lines = set(f.readlines())
-                    
+
                 with open(filename, 'w') as f:
-                    f.writelines(line.strip() + '\n' for line in lines) 
+                    f.writelines(line.strip() + '\n' for line in lines)
             if keep:
                 if config.prefer_combo_tokens():
                     cmd.log('CHECKER', 'Combo mode is selected, tokens will be saved to combo_tokens.txt (COMBO CHECKS ARE NOT THREADED)')
@@ -954,7 +954,10 @@ class tool:
             tokens = get.tokens()
             if config.prefer_combo_tokens():
                 with open('data\\combo_tokens.txt', 'r') as f:
-                    combos = f.readlines()
+                    combos = f.read().splitlines()
+            filename = 'data\\combo_tokens.txt' if config.prefer_combo_tokens() else 'data\\tokens.txt'
+            if keep:
+                open(filename, 'w')
             if config.online(): thread.single(tool.online, get.tokens())
             if config.prefer_combo_tokens():
                 for combo in combos:
