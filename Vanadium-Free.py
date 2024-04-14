@@ -967,10 +967,10 @@ class tool:
                 thread.single(tool.checker.check_token, tokens, keep)
     
     class spammer:
-        def send_messages(token, message, guildid, channelid):
+        def send_messages(token, message, channelid):
             while True:
                 ss = session()
-                new_message = tool.spammer.replace(message, guildid)
+                new_message = tool.spammer.replace(message)
                 new_message = f'{new_message}'
                 payload = {
                     "content": new_message
@@ -990,6 +990,7 @@ class tool:
                 elif r.status_code == 429:
                     cmd.ratelimit(token, r.status_code, r.json())
                     time.sleep(float(r.json()['retry_after']))
+                    cmd.dbg(float(r.json()['retry_after']))
                     continue
                 elif r.status_code == 401:
                     cmd.bad(token, 'Invalid', r.status_code), r.text
@@ -1080,7 +1081,7 @@ EXAMPLE ~> Raided (ping=5) real (str=100) sigmaer (emoji=11)
                     tool.spammer.get_emojis()
             tokens = tool.channel_acces(channelid)
             if config.online(): thread.single(tool.online, get.tokens())
-            thread.multi(thread_amt, tool.spammer.send_messages, tokens, message, guildid, channelid)
+            thread.multi(thread_amt, tool.spammer.send_messages, tokens, message, channelid)
 
     class bypasses:
         def main():
