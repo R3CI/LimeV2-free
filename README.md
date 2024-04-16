@@ -60,7 +60,7 @@
     10 ⭐ ~> Display changer. bio changer, server nick changer
     25 ⭐ ~> Poll spammer and voter
     50 ⭐ ~> Reaction bomber and reaction bypass
-    100⭐ ~> ???
+    100⭐ ~> Proxy support
   
   </div>
 </details>
