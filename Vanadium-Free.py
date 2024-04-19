@@ -731,7 +731,7 @@ class tool:
                     "lurking": False,
                 }
                 ss = session()
-                r = ss.delete(
+                r = ss.get(
                     f"https://discord.com/api/v9/users/@me/guilds/{guildid}",
                     json=payload,
                     headers=headers.get(token, payload)
