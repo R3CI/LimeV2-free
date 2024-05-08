@@ -52,22 +52,10 @@
   </div>
 </details>
 
-<details>
-  <summary>⭐ Goals</summary>
-  
-  <div style="overflow-x:auto; max-height: 300px;">
-   
-    10 ⭐ ~> Display changer. bio changer, server nick changer
-    25 ⭐ ~> Poll spammer and voter
-    50 ⭐ ~> Reaction bomber and reaction bypass
-    100⭐ ~> Proxy support
-  
-  </div>
-</details>
-
 ## 🖥 Preview
 <p align="center">
-  <img src="https://imgur.com/rWStyYv.png">
+  <img src="https://imgur.com/MnSYV2n.png">
+  <img src="https://imgur.com/ChTlqlG.png">
 </p>
 
 ## Star History
