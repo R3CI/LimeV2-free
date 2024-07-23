@@ -1,4 +1,4 @@
-# README IN WORK
+
 <p align="center">
   <img src="https://imgur.com/YVzaAvq.png" width="125" height="125">
 </p>
@@ -9,12 +9,43 @@
   <img src="https://img.shields.io/github/issues/R3CI/lime-lite?style=flat-square&color=lightgreen">
 </p>
 
-
-## 🖥️ Preview
-
 <p align="center">
   <img src="https://r2.e-z.host/7c8e3bed-9eb6-4d91-a340-ae01365df446/i69t36zl.png">
 </p>
+
+<details>
+  <summary>Setup</summary>
+  <ol>
+    <li>Download from releases</li>
+    <li>Run Main.exe</li>
+    <li>Input tokens/proxies and change the config</li>
+    <li>Have fun!</li>
+  </ol>
+</details>
+
+<details>
+  <summary>FAQ</summary>
+  <ol>
+    <li><strong>Why exe only?</strong>
+      <p>So people wont be reposting the source with malwre, and by not being open src the user can use more features</p>
+    </li>
+    <li><strong>What do i do if it does not work</strong>
+      <p>Submit a issue on the issues tab on this repo</p>
+    </li>
+    <li><strong>Wheare do i get tokens?</strong>
+      <p>Either manualy make them USING GOOD EMAILS or buy some IMPORTANT! if u make tokens manualy do NOT log out as it will delete the token use incognito mode instead and fully close the incognito after creation</p>
+    </li>
+    <li><strong>What is the correct token format?</strong>
+      <p>Token1</p>
+      <p>Token2</p>
+      <p>Token3</p>
+      <p>IMPORTANT Do NOT leave "" in the token</p>
+    </li>
+    <li><strong>Wheare can i buy the full version</strong>
+      <p>https://dsc.gg/limetool</p>
+    </li>
+  </ol>
+</details>
 
 ## ⭐ Star history (help beat cwelium)
 <p align="center">
