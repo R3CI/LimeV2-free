@@ -9,6 +9,8 @@
   <img src="https://img.shields.io/github/license/R3CI/lime-lite?style=flat-square&color=lightgreen">
   <img src="https://img.shields.io/github/issues/R3CI/lime-lite?style=flat-square&color=lightgreen">
   <img src="https://img.shields.io/github/downloads/R3CI/lime-lite/latest/total?sort=semver&style=flat-square&label=downloads&color=lightgreen">
+  <img src="https://img.shields.io/github/v/release/R3CI/Lime-lite?style=flat-square&color=lightgreen">
+  <img src="https://img.shields.io/github/release-date/R3CI/Lime-lite?style=flat-square&color=lightgreen">
 </p>
 
 <p align="center">
