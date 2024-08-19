@@ -19,7 +19,8 @@
   <summary>Setup</summary>
   <ol>
     <li>Download from releases</li>
-    <li>Run Main.exe</li>
+    <li>Unzip the release</li>
+    <li>Run main.py</li>
     <li>Input tokens/proxies and change the config</li>
     <li>Have fun!</li>
   </ol>
@@ -28,9 +29,6 @@
 <details>
   <summary>FAQ</summary>
   <ol>
-    <li><strong>Why exe only?</strong>
-      <p>So people wont be reposting the source with malwre, and by not being open src the user can use more features</p>
-    </li>
     <li><strong>What do i do if it does not work</strong>
       <p>Submit a issue on the issues tab on this repo</p>
     </li>
@@ -44,7 +42,7 @@
       <p>IMPORTANT Do NOT leave "" in the token</p>
     </li>
     <li><strong>Wheare can i buy the full version</strong>
-      <p>https://dsc.gg/limetool</p>
+      <p>https://r3ci.bgng.io/</p>
     </li>
   </ol>
 </details>
