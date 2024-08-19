@@ -4,6 +4,8 @@ from core import __VERSION__, __CHANGELOG__, __FULLCHANGELOG__
 from core.plugins import *
 from core.modules import *
 
+webbrowser.open('https://discord.gg/AQC2ARgamK')
+
 while True:
     rpc.update('In the main menu')
     cmd.cls()
