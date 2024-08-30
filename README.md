@@ -1,3 +1,5 @@
+# ATM THE CODE IS VERY BUGGY PLEASE WAIT UNTIL I FINISH RECODING EVERYTHING!!!
+
 ### Remember to star and vouch!
 
 <p align="center">
