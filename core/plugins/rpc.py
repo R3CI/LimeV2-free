@@ -13,17 +13,20 @@ class rpc:
             pass
 
     def update(self, details: str):
-        if cfg().rpc():
-            self.rpc.update(
-                details=details,
-                state=f'Tokens {get.token_count()} | Proxies {get.proxy_count()}',
-                large_image=self.large_image,
-                buttons = [
-                    {'label': 'Get', 'url': 'https://dsc.gg/limetool'},
-                ],
-                start=int(time.time())
-            )
-        else:
+        try:
+            if cfg().rpc():
+                self.rpc.update(
+                    details=details,
+                    state=f'Tokens {get.token_count()} | Proxies {get.proxy_count()}',
+                    large_image=self.large_image,
+                    buttons = [
+                        {'label': 'Get', 'url': 'https://dsc.gg/limetool'},
+                    ],
+                    start=int(time.time())
+                )
+            else:
+                pass
+        except:
             pass
 
 rpc = rpc()
