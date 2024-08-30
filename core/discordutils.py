@@ -70,7 +70,7 @@ class Discord:
         if r.status_code == 200: 
             return True
         
-        elif r.json()['code'] == '20028':
+        elif 'code' in r.text and r.text['code'] == '20028':
             limit = float(r.json()['retry_after'])
             time.sleep(limit)
             Discord.check_invite(regex, sess)
@@ -94,7 +94,7 @@ class Discord:
         if r.status_code == 200: 
             return r.json()['channel']['id']
         
-        elif r.json()['code'] == '20028':
+        elif 'code' in r.text and r.text['code'] == '20028':
             limit = float(r.json()['retry_after'])
             time.sleep(limit)
             Discord.get_invite_channelid(regex, sess)
@@ -118,7 +118,7 @@ class Discord:
         if r.status_code == 200: 
             return r.json()['guild']['name']
         
-        elif r.json()['code'] == '20028':
+        elif 'code' in r.text and r.text['code'] == '20028':
             limit = float(r.json()['retry_after'])
             time.sleep(limit)
             Discord.get_server_name(regex, sess)
@@ -161,10 +161,10 @@ class Discord:
                 if r.status_code == 200:
                     return r.json()
                 
-                elif r.json()['code'] == '20028':
+                elif 'code' in r.text and r.text['code'] == '20028':
                     limit = float(r.json()['retry_after'])
                     time.sleep(limit)
-                    Discord.get_server_acces_tokens(channelid, token, sess)
+                    Discord.get_messages(channelid, token, sess)
 
                 else:
                     pass
@@ -185,7 +185,7 @@ class Discord:
             if r.status_code == 200:
                 return r.json()
 
-            elif r.json()['code'] == '20028':
+            elif 'code' in r.text and r.text['code'] == '20028':
                 limit = float(r.json()['retry_after'])
                 time.sleep(limit)
                 Discord.get_messages(channelid, token, sess)
@@ -210,7 +210,7 @@ class Discord:
                 if r.status_code == 200:
                     return r.json()
                 
-                elif r.json()['code'] == '20028':
+                elif 'code' in r.text and r.text['code'] == '20028':
                     limit = float(r.json()['retry_after'])
                     time.sleep(limit)
                     Discord.get_soundboard(token, sess)
@@ -231,7 +231,7 @@ class Discord:
             if r.status_code == 200:
                 return r.json()
 
-            elif r.json()['code'] == '20028':
+            elif 'code' in r.text and r.text['code'] == '20028':
                 limit = float(r.json()['retry_after'])
                 time.sleep(limit)
                 Discord.get_soundboard(token, sess)
@@ -258,13 +258,16 @@ class Discord:
                 if r.status_code == 200:
                     acces.append(token)
 
-                elif r.json()['code'] == '20028':
+                elif 'code' in r.text and r.text['code'] == '20028':
                     limit = float(r.json()['retry_after'])
                     time.sleep(limit)
                     Discord.get_server_acces_tokens(serverid, token, sess)
+                
+                else:
+                    log.fail(r.text)
 
-                log.debug(acces)
-                return acces
+            log.debug(acces)
+            return acces
 
         else:
             sess, cookies, headers = client.build(token)
@@ -281,7 +284,7 @@ class Discord:
             if r.status_code == 200:
                 return [token]
             
-            elif r.json()['code'] == '20028':
+            elif 'code' in r.text and r.text['code'] == '20028':
                 limit = float(r.json()['retry_after'])
                 time.sleep(limit)
                 Discord.get_server_acces_tokens(serverid, token, sess)
@@ -309,10 +312,13 @@ class Discord:
                 servername = server['name']
                 servers.append({'id': serverid, 'name': servername})
         
-        elif r.json()['code'] == '20028':
+        elif 'code' in r.text and r.text['code'] == '20028':
             limit = float(r.json()['retry_after'])
             time.sleep(limit)
             Discord.get_servers(token, sess)
+
+        else:
+            log.fail(r.text)
 
         log.debug(servers)
         
@@ -337,10 +343,13 @@ class Discord:
                 dmid = dm['id']
                 dms.append(dmid)
         
-        elif r.json()['code'] == '20028':
+        elif 'code' in r.text and r.text['code'] == '20028':
             limit = float(r.json()['retry_after'])
             time.sleep(limit)
-            Discord.get_dms(token, sess)     
+            Discord.get_dms(token, sess)
+
+        else:
+            log.fail(r.text)   
         
         log.debug(dms)
         return dms
@@ -363,7 +372,7 @@ class Discord:
             for id in r.json():
                 friends.append(id['id'])  
 
-        elif r.json()['code'] == '20028':
+        elif 'code' in r.text and r.text['code'] == '20028':
             limit = float(r.json()['retry_after'])
             time.sleep(limit)
             Discord.get_friend_ids(token, sess)
@@ -392,7 +401,7 @@ class Discord:
         if r.status_code == 200:
             r.json()['id']
 
-        elif r.json()['code'] == '20028':
+        elif 'code' in r.text and r.text['code'] == '20028':
             limit = float(r.json()['retry_after'])
             time.sleep(limit)
             Discord.open_dm(token, userid, sess)
