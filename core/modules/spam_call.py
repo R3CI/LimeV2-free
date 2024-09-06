@@ -63,6 +63,6 @@ class spam_call:
         thread(
             threads,
             spam_call.call,
-            tokens,
+            get.tokens(),
             [None, userid]
         ).work()
