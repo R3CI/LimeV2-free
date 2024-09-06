@@ -57,7 +57,7 @@ class spam_call:
         
         threads = UI().ask('THREADS')
         userid = UI().ask('USER ID')
-        tokens = Discord.get_server_acces_tokens(userid)
+        #tokens = Discord.get_server_acces_tokens(userid)
         log.log('SPAM CALLER', 'Calling...')
 
         thread(
