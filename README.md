@@ -4,11 +4,6 @@
 </p>
 
 <p align="center">
-  <a href="https://dashboard.capsolver.com/passport/register?inviteCode=oYfOFBMsyi2Y" target="_blank">
-  <img src="https://assets.capsolver.com/prod/images/post/2023-07-17/67cb4382-7460-4683-ae39-117069502d4a.png" alt="https://dashboard.capsolver.com/passport/register?inviteCode=oYfOFBMsyi2Y">
-</p>
-
-<p align="center">
   <img src="https://imgur.com/YVzaAvq.png" width="125" height="125">
 </p>
 
