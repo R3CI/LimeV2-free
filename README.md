@@ -1,3 +1,4 @@
+V2 soon???
 <p align="center">
   INSTALL TUTORIAL https://www.youtube.com/watch?v=Kaka_AwOa0Y
 </p>
