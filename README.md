@@ -1,9 +1,4 @@
 <p align="center">
-  <a href="https://iproyal.com/?r=429481" target="_blank">
-  <img src="https://dashboard.iproyal.com/img/b/728_1.jpg" alt="https://iproyal.com/?r=429481">
-</p>
-
-<p align="center">
   <img src="https://imgur.com/YVzaAvq.png" width="125" height="125">
 </p>
 
@@ -18,6 +13,11 @@
 
 <p align="center">
   <img src="https://r2.e-z.host/7c8e3bed-9eb6-4d91-a340-ae01365df446/s3h8l2rs.png">
+</p>
+
+<p align="center">
+  <a href="https://iproyal.com/?r=429481" target="_blank">
+  <img src="https://dashboard.iproyal.com/img/b/728_1.jpg" alt="https://iproyal.com/?r=429481">
 </p>
 
 ## ⭐ Star history (help beat cwelium)
