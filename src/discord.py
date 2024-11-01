@@ -7,11 +7,9 @@ class discord:
         pass
 
     def extract_invite(self, invite):
-        match = re.search(r'(?:(?:http:\/\/|https:\/\/)?discord\.gg\/|discordapp\.com\/invite\/|discord\.com\/invite\/)?([a-zA-Z0-9-]+)', invite)
-        if match: invite =  match.group(1)
+        invite = re.sub(r"(https?://)?(www\.)?(discord\.(gg|com)/invite/|discord\.gg/|discord\.com/invite/|\.gg/)", "", invite)
         log.dbg('Extract invite', invite)
         return invite
-    
 
     def get_invite_info(self, invite):
         cl = client()
@@ -104,7 +102,6 @@ class discord:
 
     def getsnowflake(self):
         return ((int(time.time() * 1000) - 1420070400000) << 22)
-    
 
     def getemojis(self, length):
         emoji_ranges = [
