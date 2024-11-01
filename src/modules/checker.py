@@ -23,16 +23,13 @@ class checker:
         log.dbg('Checker', state.text, state.status_code)
 
         if state.status_code == 200:
-            log.info('Checker', f'{token[:30]}... >> Token info is paid only')
+            log.info('Checker', f'{token[:30]}... >> Valid')
 
         elif 'retry_after' in state.text:
             limit = state.json()['retry_after']
             log.warn('Checker', f'{token[:30]}... >> Limited for {limit}s')
             time.sleep(float(limit))
             self.check(token)
-
-        elif 'captcha_key' in state.text:
-            log.hcap('Checker', f'{token[:30]}... >> HCAPTCHA')
 
         elif 'You need to verify' in state.text:
             log.critical('Checker', f'{token[:30]}... >> LOCKED')
