@@ -23,7 +23,7 @@ class checker:
         log.dbg('Checker', state.text, state.status_code)
 
         if state.status_code == 200:
-            log.info('Checker', f'{token[:30]}... >> Token info is paid only')
+            log.info('Checker', f'{token[:30]}... >> Valid >> Token info is paid only')
 
         elif 'retry_after' in state.text:
             limit = state.json()['retry_after']
