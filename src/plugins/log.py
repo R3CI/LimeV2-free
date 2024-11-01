@@ -3,7 +3,7 @@ from src import *
 class log:
     def basic(ts=False, color=co.white, message='None', type=None):
         if ts:
-            ts = f'{co.black}{dt.now().strftime('%H %M %S')}'
+            ts = f'{co.black}{dt.now().strftime("%H %M %S")}'
         else:
             ts = ''
 
