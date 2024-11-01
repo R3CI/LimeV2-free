@@ -24,53 +24,19 @@ while True:
     ui().stats()
     ui().menu()
 
-    # yeah chosing system could be better but its the most relaible 🙏🙏🙏🙏
-    x = ui().ask('Choice')
-
-    if x == '>>':
-        ui().menu2()
-        x = ui().ask('Choice')
+    options = { # use lime for 100000000 free options
+        '>>': lambda: [ui().menu2(), ui().ask('Choice')],
+        '1': joiner().main(),
+        '2': leaver().main(),
+        '3': isinserver().main(),
+        '6': message_spammer().main(),
+        '11': checker().main(),
+    }
     
-    elif x in ['01', '1']:
-        joiner().main()
-    
-    elif x in ['02', '2']:
-        leaver().main()
-    
-    elif x in ['03', '3']:
-        isinserver().main()
-    
-    elif x in ['04', '4']:
-        log().premium_only()
-    
-    elif x in ['05', '5']:
-        log().premium_only()
-    
-    elif x in ['06', '6']:
-        message_spammer().main()
-    
-    elif x in ['07', '7']:
-        log().premium_only()
-    
-    elif x in ['08', '8']:
-        log().premium_only()
-    
-    elif x in ['09', '9']:
-        log().premium_only()
-    
-    elif x in ['10']:
-        log().premium_only()
-    
-    elif x in ['11']:
-        checker().main()
-
-    elif x in ['12']:
-        log().premium_only()
-
-    elif x in ['13']:
-        log().premium_only()
-
+    choice = ui().ask('Choice')
+    if choice in options:
+        options[choice]()
     else:
-        log.info('Main', 'That option does not exist yet', True)    
+        log().premium_only()
         
     log.info('Main', 'Finished! Enter to continue', True)    
