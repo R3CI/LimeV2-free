@@ -1,80 +1,76 @@
 import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
-from core import *
-from core import __VERSION__, __CHANGELOG__, __FULLCHANGELOG__
-from core.plugins import *
-from core.modules import *
+from src import *
+from src.plugins.error_chandler import *
+from src.plugins.files import *; files()
+from src.plugins.log import *
+from src.plugins.ui import *
 
-webbrowser.open('https://discord.gg/spamming')
+from src.modules.joiner import *
+from src.modules.leaver import *
+from src.modules.isinserver import *
+from src.modules.message_spammer import *
+from src.modules.checker import *
+
+ui().cls()
+ui().title('Lime V2 free - discord.gg/spamming')
+ui().banner()
+log.info('Main', 'Startring up!')
+
 
 while True:
-    rpc.update('In the main menu')
-    cmd.cls()
-    cmd.title(f'Lime {__VERSION__} | Tokens {get.token_count()} | Proxies {get.proxy_count()} | dsc.gg/limetool | Made by R3CI')
-    UI().banner()
-    UI().menu()
-    choicething = Colorate.Horizontal(Colors.green_to_white, f'''
-┏━━{os.getlogin()}@Lime
-┗━━━> ''')
-    choice = input(choicething)
-    options = {
-        '1': (server_managment.menu, 'Server managment'),
-        '2': (token_managment.menu, 'Token managment'),
-        '3': (spamming_memnu.menu, 'Spamming menu'),
-        '4': (bypass_menu.menu, 'Bypass menu'),
-        '5': (vc_menu.menu, 'VC menu'),
-        '6': (webhook_menu.menu, 'Webhook menu'), 
-        '7': (log.log('UI', 'This feature is paid ONLY'), 'Server admin menu'),
-        '8': (log.log('UI', 'This feature is paid ONLY'), 'Mass report menu'),
-        '9': (log.log('UI', 'This feature is paid ONLY'), 'Mass DM menu'),
-        '10': (spam_call.menu, 'Spam call'),
-        '11': (button_spammer.menu, 'Button spammer'),
-        '12': (log.log('UI', 'Just use button spammer for that'), 'Mass ticket maker'),
-        '13': (mass_friender.menu, 'Mass friender'),
-        '14': (reaction_bomber.menu, 'Reaction bomber'),
-        '15': (mass_invite_maker.menu, 'Mass invite maker'),
-        '16': (poll_voter.menu, 'Poll voter'),
-        '17': (log.wip, 'None'),
-        '18': (log.wip, 'None'),
-        '21': (log.wip, 'None'),
-        '22': (log.wip, 'None'),
-        '23': (log.wip, 'None'),
-        '24': (log.wip, 'None')
-    }   
+    ui().cls()
+    ui().title('Lime V2 free - discord.gg/spamming')
+    ui().banner()
+    ui().stats()
+    ui().menu()
 
-    if choice in options:
-        func, name = options[choice]
-        rpc.update(f'Using {name}')
-        cmd.cls()
-        UI().banner()
-        func()
-        log.log('UI', 'Finished!, enter to continue', True)
+    # yeah chosing system could be better but its the most relaible 🙏🙏🙏🙏
+    x = ui().ask('Choice')
 
-    elif choice == '19':
-        log.log('UI', 'This feature is paid ONLY', True)
-
-    elif choice == '20':
-        log.log('UI', 'This feature is paid ONLY', True)
+    if x == '>>':
+        ui().menu2()
+        x = ui().ask('Choice')
     
-    elif choice in ['REP', 'rep']:
-        log.log('UI', 'For now report all issues to my dms (r3ci_)', True)
+    elif x in ['01', '1']:
+        joiner().main()
+    
+    elif x in ['02', '2']:
+        leaver().main()
+    
+    elif x in ['03', '3']:
+        isinserver().main()
+    
+    elif x in ['04', '4']:
+        log().premium_only()
+    
+    elif x in ['05', '5']:
+        log().premium_only()
+    
+    elif x in ['06', '6']:
+        message_spammer().main()
+    
+    elif x in ['07', '7']:
+        log().premium_only()
+    
+    elif x in ['08', '8']:
+        log().premium_only()
+    
+    elif x in ['09', '9']:
+        log().premium_only()
+    
+    elif x in ['10']:
+        log().premium_only()
+    
+    elif x in ['11']:
+        checker().main()
 
-    elif choice in ['EX', 'ex']:
-        UI().make_menu([
-            'Changelog (old -> current version)',
-            'Full changelog (start -> current)'
-        ], True, 1)
+    elif x in ['12']:
+        log().premium_only()
 
-        choice = UI().ask('CHOICE')
-        if choice in ['01', '1']:
-            print(Colorate.Horizontal(Colors.green_to_white, __CHANGELOG__))
-            input(Colorate.Horizontal(Colors.green_to_white, 'Enter to continue'))
-
-        elif choice in ['02', '2']:
-            print(Colorate.Horizontal(Colors.green_to_white, __FULLCHANGELOG__))
-            input(Colorate.Horizontal(Colors.green_to_white, 'Enter to continue'))
-        
-        elif choice == '<<':
-            log.log('UI', 'Returning')
+    elif x in ['13']:
+        log().premium_only()
 
     else:
-        log.log('UI', 'Not a valid option, enter to continue', True)
+        log.info('Main', 'That option does not exist yet', True)    
+        
+    log.info('Main', 'Finished! Enter to continue', True)    

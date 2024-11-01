@@ -1,0 +1,6 @@
+{
+    "version": 1.0,
+    "advanced-mode": true,
+    "threads": 10,
+    "proxies": false
+}
