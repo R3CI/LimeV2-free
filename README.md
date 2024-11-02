@@ -6,7 +6,6 @@
   <img src="https://img.shields.io/github/stars/R3CI/LimeV2-free?style=flat-square&color=lightgreen">
   <img src="https://img.shields.io/github/license/R3CI/LimeV2-free?style=flat-square&color=lightgreen">
   <img src="https://img.shields.io/github/issues/R3CI/LimeV2-free?style=flat-square&color=lightgreen">
-  <img src="https://img.shields.io/github/downloads/R3CI/LimeV2-free/latest/total?sort=semver&style=flat-square&label=downloads&color=lightgreen">
   <img src="https://img.shields.io/github/v/release/R3CI/LimeV2-free?style=flat-square&color=lightgreen">
   <img src="https://img.shields.io/github/release-date/R3CI/LimeV2-free?style=flat-square&color=lightgreen">
 </p>
