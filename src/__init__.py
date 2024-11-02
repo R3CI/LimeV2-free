@@ -11,11 +11,11 @@ import random
 from tkinter import messagebox
 from typing import cast
 import string
-import uuid
 import queue
 import tkinter as tk
 from tkinter import filedialog
 import webbrowser
+import base64
 
 with open('output\\errors.txt', 'w') as f:
     f.write('')
@@ -54,30 +54,29 @@ for path in os.environ['PATH'].split(os.pathsep):
         continue
 
 if len(python_vers) > 1:
-    messagebox.showerror('Error', 'We have detected that you have multiple version of python installed! Please keep only ONE to avoid any issues! 3.12.7 is recommended')
+    messagebox.showinfo('Info', 'We have detected that you have multiple version of python installed! Please keep only ONE to avoid any issues! 3.12.7 is recommended')
     exit()
 
 try:
     subprocess.run(['pip', '--version'], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 except FileNotFoundError:
-    messagebox.showerror('Error', 'Pip not found! This is most likely due a bad installation of python! Install 3.12.1 and when installing add to path, install as admin and use advanced then make sure pip is checked and you install for all users!!!')
+    messagebox.showinfo('Info', 'Pip not found! Run /bad-python on discord.gg/spamming to fix!')
     exit()
 
 if os.path.abspath(__file__).startswith(os.path.join(os.path.expanduser('~'), 'Downloads')):
-    messagebox.showerror('Error', 'Script is inside of the downloads folder! Please move all files of lime to the desktop to avoid any issues!!')
+    messagebox.showinfo('Info', 'Script is inside of the downloads folder! Please move all files of lime to the desktop to avoid any issues!!')
     exit()
 
 try:
-    import base64
     import requests
     import tls_client
     from colorama import Back as B, Style as S
     from datetime import datetime as dt
     import ab5
+    import uuid
 
 except ModuleNotFoundError as e:
-    for lib in [e.name, 'requests', 'tls-client', 'typing-extensions', 'colorama', 'datetime', 'ab5']:
-        os.system(f'pip install {lib}')
-
+    os.system(f'pip install {e.name}')
+    os.system('pip install -r requirements.txt')
     os.system('cls')
     messagebox.showinfo('Information', 'All needed libs ware downloaded! Please open the script again')
