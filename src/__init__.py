@@ -1,4 +1,5 @@
 DBG = False
+VERSION = 2.0
 
 import sys, os, traceback; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
 import json
@@ -16,6 +17,8 @@ import tkinter as tk
 from tkinter import filedialog
 import webbrowser
 import base64
+from io import BytesIO
+import zipfile
 
 with open('output\\errors.txt', 'w') as f:
     f.write('')
@@ -35,7 +38,9 @@ class co:
     cyan = rgb(0, 245, 233)
     magenta = rgb(245, 0, 241)
     white = rgb(255, 255, 255)
-webbrowser.open('https://discord.gg/spamming')
+
+#webbrowser.open('https://discord.gg/spamming')
+
 python_vers = []
 for path in os.environ['PATH'].split(os.pathsep):
     try:
@@ -74,7 +79,7 @@ try:
     from datetime import datetime as dt
     import ab5
     import uuid
-
+    from bs4 import BeautifulSoup
 except ModuleNotFoundError as e:
     os.system(f'pip install {e.name}')
     os.system('pip install -r requirements.txt')

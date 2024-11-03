@@ -5,3 +5,4 @@ typing-extensions
 colorama
 datetime
 ab5
+beautifulsoup4

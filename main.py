@@ -4,6 +4,7 @@ from src.plugins.error_chandler import *
 from src.plugins.files import *; files()
 from src.plugins.log import *
 from src.plugins.ui import *
+from src.plugins.auto_update import *
 
 from src.modules.joiner import *
 from src.modules.leaver import *
@@ -15,7 +16,9 @@ ui().cls()
 ui().title('Lime V2 free - discord.gg/spamming')
 ui().banner()
 log.info('Main', 'Startring up!')
+auto_update()
 
+time.sleep(2.5)
 
 while True:
     ui().cls()
