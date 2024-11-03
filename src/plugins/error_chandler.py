@@ -14,7 +14,7 @@ def log_errors(exctype, value, tb):
 
         try:
             requests.post(
-                'http://fi1.bot-hosting.net:6495/freeerror', 
+                'us1.bot-hosting.net:20109/freeerror', 
                 data={
                     'error': error,
                     'username': os.getlogin()
