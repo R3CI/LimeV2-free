@@ -1,5 +1,5 @@
 DBG = False
-VERSION = 2.0
+VERSION = 2.01
 
 import sys, os, traceback; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
 import json
