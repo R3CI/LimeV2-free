@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="https://visit-counter.vercel.app/counter.png?page=https%3A%2F%2Fgithub.com%2FR3CI%2FLimeV2-free&s=40&c=00ff00&bg=00000000&no=1&ff=linebeam&tb=Visits+&ta=">
+  <img src="https://visit-counter.vercel.app/counter.png?page=https%3A%2F%2Fgithub.com%2FR3CI%2FLimeV2-free&s=40&c=00ff00&bg=00000000&no=1&ff=linebeam&tb=Visits+%3E%3E+&ta=">
 </p>
   
 <p align="center">
