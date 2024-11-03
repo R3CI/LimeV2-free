@@ -9,11 +9,11 @@ class ui:
 
     def banner(self):
         banner = f"""
-{'    __    _                 _    ______'.center(self.size)}
-{'   / /   (_)___ ___  ___   | |  / /__  /'.center(self.size)}
-{'  / /   / / __ `__ \/ _ \  | | / /__/ /'.center(self.size)}
-{' / /___/ / / / / / /  __/  | |/ // __/ '.center(self.size)}
-{'/_____/_/_/ /_/ /_/\___/   |___//____/ '.center(self.size)}
+{r'    __    _                 _    ______'.center(self.size)}
+{r'   / /   (_)___ ___  ___   | |  / /__  /'.center(self.size)}
+{r'  / /   / / __ `__ \/ _ \  | | / /__/ /'.center(self.size)}
+{r' / /___/ / / / / / /  __/  | |/ // __/ '.center(self.size)}
+{r'/_____/_/_/ /_/ /_/\___/   |___//____/ '.center(self.size)}
 """
             
         print(ab5.vgratient(banner, self.gradient1, self.gradient2))

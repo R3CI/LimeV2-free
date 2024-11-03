@@ -1,5 +1,5 @@
 DBG = False
-VERSION = 2.01
+VERSION = 2.02
 
 import sys, os, traceback; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
 import json
@@ -39,34 +39,37 @@ class co:
     magenta = rgb(245, 0, 241)
     white = rgb(255, 255, 255)
 
-#webbrowser.open('https://discord.gg/spamming')
-
-python_vers = []
-for path in os.environ['PATH'].split(os.pathsep):
-    try:
-        pyfiles = os.listdir(path)
-        for pyfile in pyfiles:
-            if pyfile.startswith('python') and ('exe' in pyfile or 'bin' in pyfile):
-                try:
-                    version = subprocess.check_output([os.path.join(path, pyfile), '--version'], stderr=subprocess.STDOUT).decode().strip().split(' ')[1]
-                    if version not in python_vers:
-                        python_vers.append(version)
-
-                except subprocess.CalledProcessError:
-                    continue
-                
-    except (FileNotFoundError, PermissionError):
-        continue
-
-if len(python_vers) > 1:
-    messagebox.showinfo('Info', 'We have detected that you have multiple version of python installed! Please keep only ONE to avoid any issues! 3.12.7 is recommended')
-    exit()
-
+# yes again some shitty loading code but who cares
 try:
-    subprocess.run(['pip', '--version'], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-except FileNotFoundError:
-    messagebox.showinfo('Info', 'Pip not found! Run /bad-python on discord.gg/spamming to fix!')
-    exit()
+    from colorama import Back as B, Style as S
+    from datetime import datetime as dt
+    import os
+    import ab5
+    def __INFLOG__(module, message, inp=False, ts=True):
+        if ts:
+            ts = f'{co.black}{dt.now().strftime("%H|%M|%S")} '
+        else:
+            ts = ''
+        if inp:
+            input(f'{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}')
+        else:
+            print(f'{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}')
+
+    os.system('cls')
+    size = os.get_terminal_size().columns
+    banner = f"""
+{r'    __    _                 _    ______'.center(size)}
+{r'   / /   (_)___ ___  ___   | |  / /__  /'.center(size)}
+{r'  / /   / / __ `__ \/ _ \  | | / /__/ /'.center(size)}
+{r' / /___/ / / / / / /  __/  | |/ // __/ '.center(size)}
+{r'/_____/_/_/ /_/ /_/\___/   |___//____/ '.center(size)}
+"""
+    print(ab5.vgratient(banner, [0, 255, 96], [128, 163, 91]))
+    __INFLOG__('Main', 'Opened up discord (discord.gg/spamming)')
+    webbrowser.open('https://discord.gg/spamming')
+    __INFLOG__('Main', 'Checking file structure...')
+except:
+    pass
 
 if os.path.abspath(__file__).startswith(os.path.join(os.path.expanduser('~'), 'Downloads')):
     messagebox.showinfo('Info', 'Script is inside of the downloads folder! Please move all files of lime to the desktop to avoid any issues!!')

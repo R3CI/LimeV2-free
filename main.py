@@ -12,13 +12,8 @@ from src.modules.isinserver import *
 from src.modules.message_spammer import *
 from src.modules.checker import *
 
-ui().cls()
-ui().title('Lime V2 free - discord.gg/spamming')
-ui().banner()
-log.info('Main', 'Startring up!')
 auto_update()
-
-time.sleep(2.5)
+time.sleep(2.1)
 
 while True:
     ui().cls()
@@ -27,29 +22,26 @@ while True:
     ui().stats()
     ui().menu()
 
-    x = ui().ask('Choice')
+    choice = ui().ask('Choice')
 
     options = {
-        '>>': lambda: [ui().menu2(), ui().ask('Choice')],
+        '>>': lambda: (ui().menu2(), ui().ask('Choice')),
         '1': joiner().main,
         '2': leaver().main,
         '3': isinserver().main,
-        '4': log.premium_only(),
-        '5': log.premium_only(),
+        '4': log.premium_only,
+        '5': log.premium_only,
         '6': message_spammer().main,
-        '7': log.premium_only(),
-        '8': log.premium_only(),
-        '9': log.premium_only(),
-        '10': log.premium_only(),
-        '11': log.premium_only(),
+        '7': log.premium_only,
+        '8': log.premium_only,
+        '9': log.premium_only,
+        '10': log.premium_only,
         '11': checker().main,
     }
 
-    choice = ui().ask('Choice')
     if choice in options:
         options[choice]()
-
     else:
-        log.info('Main', 'That option does not exist yet', True)    
-        
-    log.info('Main', 'Finished! Enter to continue', True)    
+        log.info('Main', 'That option does not exist yet', True)
+
+    log.info('Main', 'Finished! Enter to continue', True)
