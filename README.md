@@ -11,6 +11,10 @@
 </p>
 
 <p align="center">
+  <img src="https://visit-counter.vercel.app/counter.png?page=https%3A%2F%2Fgithub.com%2FR3CI%2FLimeV2-free&s=40&c=00ff00&bg=00000000&no=1&ff=linebeam&tb=Visits+&ta=">
+</p>
+  
+<p align="center">
   <img src="https://r2.e-z.host/7c8e3bed-9eb6-4d91-a340-ae01365df446/s3h8l2rs.png">
 </p>
 
