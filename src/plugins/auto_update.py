@@ -12,9 +12,9 @@ class auto_update:
 
         if self.check():
             log.info('Auto update', 'Update available')
-            self.currentdir = os.path.join(os.path.dirname(__file__), f'LimeV2-latest-{self.newest}')
+            self.currentdir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'LimeV2-latest-' + str(self.newest)))
             if not os.path.exists(self.currentdir):
-                os.mkdir(self.currentdir, exist_ok=True)  
+                os.mkdir(self.currentdir)  
                 
                 r = requests.get(f'https://github.com/R3CI/LimeV2-free/archive/refs/tags/{self.newest}.zip')
                 zip_file = BytesIO(r.content)
