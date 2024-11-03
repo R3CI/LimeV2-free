@@ -19,7 +19,7 @@
   <img src="https://dashboard.iproyal.com/img/b/728_1.jpg" alt="https://iproyal.com/?r=429481">
 </p>
 
-## ⭐ Star history (help beat cwelium)
+## ⭐ Star history (vs popular discord raid tools from github)
 <p align="center">
   <a href="https://star-history.com/#R3CI/LimeV2-free&Tips-Discord/Cwelium&Date&theme=dark">
     <img src="https://api.star-history.com/svg?repos=R3CI/LimeV2-free,Tips-Discord/Cwelium&type=Date&theme=dark"">
