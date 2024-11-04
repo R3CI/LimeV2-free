@@ -58,11 +58,11 @@ try:
     os.system('cls')
     size = os.get_terminal_size().columns
     banner = f"""
-{r'    __    _                 _    ______'.center(size)}
-{r'   / /   (_)___ ___  ___   | |  / /__  /'.center(size)}
-{r'  / /   / / __ `__ \/ _ \  | | / /__/ /'.center(size)}
-{r' / /___/ / / / / / /  __/  | |/ // __/ '.center(size)}
-{r'/_____/_/_/ /_/ /_/\___/   |___//____/ '.center(size)}
+{r'    __    _                    __  __   ____'.center(size)}
+{r'   / /   (_)___ ___  ____     /  /  /  /__ /'.center(size)}
+{r'  / /   / / __ `__  / _  /   /  /  /  __/ / '.center(size)}
+{r' / /___/ / / / / / / ___/   /  /  /  / __/  '.center(size)}
+{r'/_____/_/_/ /_/ /_/____/   /_____/  /____/  '.center(size)}
 """
     print(ab5.vgratient(banner, [0, 255, 96], [128, 163, 91]))
     __INFLOG__('Main', 'Opened up discord (discord.gg/spamming)')
