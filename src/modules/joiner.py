@@ -53,6 +53,11 @@ class joiner:
             time.sleep(float(limit))
             self.join(token)
 
+        elif 'Cloudflare' in r.text:
+            log.warn('Checker', f'{token[:30]}... >> CLOUDFLARE BLOCKED >> Waiting for 5 secs and retrying')
+            time.sleep(5)
+            self.join(token)
+
         elif 'captcha_key' in r.text:
             log.hcap('Joiner', f'{token[:30]}... >> HCAPTCHA')
 

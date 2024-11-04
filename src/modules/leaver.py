@@ -37,6 +37,11 @@ class leaver:
             time.sleep(float(limit))
             self.leave(token)
 
+        elif 'Cloudflare' in r.text:
+            log.warn('Checker', f'{token[:30]}... >> CLOUDFLARE BLOCKED >> Waiting for 5 secs and retrying')
+            time.sleep(5)
+            self.leave(token)
+
         elif 'captcha_key' in r.text:
             log.hcap('Leaver', f'{token[:30]}... >> HCAPTCHA')
 
@@ -51,13 +56,9 @@ class leaver:
     def main(self):
         self.serverid = ui().ask('Server ID')
 
-        tokens = discord().get_server_acceses(self.serverid, files().gettokens())
-        if not tokens:
-            log.info('Leaver', 'Seems like none of the tokens are in the server (or the check failed)', True, False)   
-
         thread(
             files().getthreads(),
             self.leave,
-            tokens,
+            files().gettokens(),
             []
         )

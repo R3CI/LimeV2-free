@@ -32,6 +32,11 @@ class isinserver:
             time.sleep(float(limit))
             self.check(token)
 
+        elif 'Cloudflare' in r.text:
+            log.warn('Checker', f'{token[:30]}... >> CLOUDFLARE BLOCKED >> Waiting for 5 secs and retrying')
+            time.sleep(5)
+            self.check(token)
+
         elif 'captcha_key' in r.text:
             log.hcap('Is in server', f'{token[:30]}... >> HCAPTCHA')
 

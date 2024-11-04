@@ -61,6 +61,11 @@ class message_spammer:
                 time.sleep(float(limit))
                 continue
 
+            elif 'Cloudflare' in r.text:
+                log.warn('Checker', f'{token[:30]}... >> CLOUDFLARE BLOCKED >> Waiting for 5 secs and retrying')
+                time.sleep(5)
+                continue
+
             elif 'captcha_key' in r.text:
                 log.hcap('Message spammer', f'{token[:30]}... >> HCAPTCHA')
                 break
@@ -82,15 +87,11 @@ class message_spammer:
         log.info('Message spammer', 'An example of what you would type now Raided [[ping=10]] [[str=10]] [[emoji=10]]', False, False)  
         log.info('Message spammer', 'Remembr the number after = is fully custom you could do 100 or 33 whatever u want', False, False)   
         log.info('Message spammer', 'ping is paid only!!!', False, False)   
-        self.basemsg = ui().ask('Message')
-
-        tokens = discord().get_server_acceses(self.serverid, files().gettokens())
-        if not tokens:
-            log.info('Message spammer', 'Seems like none of the tokens are in the server (enter to continue)', True, False)   
+        self.basemsg = ui().ask('Message') 
 
         thread(
             files().getthreads(),
             self.send,
-            tokens,
+            files().gettokens(),
             []
         )
