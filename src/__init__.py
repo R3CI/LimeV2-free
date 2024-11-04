@@ -88,3 +88,4 @@ except ModuleNotFoundError as e:
     os.system('pip install -r requirements.txt')
     os.system('cls')
     messagebox.showinfo('Information', 'All needed libs ware downloaded! Please open the script again')
+    exit()
