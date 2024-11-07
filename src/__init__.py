@@ -85,7 +85,23 @@ try:
     from bs4 import BeautifulSoup
 except ModuleNotFoundError as e:
     os.system(f'pip install {e.name}')
-    os.system('pip install -r requirements.txt')
+    for lib in [
+        'requests',
+        'uuid',
+        'tls-client',
+        'typing-extensions',
+        'colorama',
+        'datetime',
+        'ab5',
+        'beautifulsoup4'
+    ]:
+        os.system(f'pip install {lib}')
+        
     os.system('cls')
-    messagebox.showinfo('Information', 'All needed libs ware downloaded! Please open the script again')
-    exit()
+    import requests
+    import tls_client
+    from colorama import Back as B, Style as S
+    from datetime import datetime as dt
+    import ab5
+    import uuid
+    from bs4 import BeautifulSoup
