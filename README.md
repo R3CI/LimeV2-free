@@ -26,6 +26,6 @@
 ## ⭐ Star history (vs popular discord raid tools from github)
 <p align="center">
   <a href="https://star-history.com/#R3CI/LimeV2-free&Tips-Discord/Cwelium&Date&theme=dark">
-    <img src="https://api.star-history.com/svg?repos=R3CI/LimeV2-free,Tips-Discord/Cwelium,vanishgg/VanishRaider&type=Date&theme=dark"">
+    <img src="https://api.star-history.com/svg?repos=R3CI/LimeV2-free&type=Date&theme=dark"">
   </a>
 </p>
