@@ -23,6 +23,6 @@ def log_errors(exctype, value, tb):
         except:
             pass
     except:
-        pass
+        print(f'{exctype} - {value} - {tb}')
 
 sys.excepthook = log_errors

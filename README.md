@@ -19,13 +19,11 @@
 </p>
 
 <p align="center">
-  <a href="https://iproyal.com/?r=429481" target="_blank">
-  <img src="https://dashboard.iproyal.com/img/b/728_1.jpg" alt="https://iproyal.com/?r=429481">
+  <a href="https://star-history.com/#R3CI/LimeV2-free&Tips-Discord/Cwelium&Date&theme=dark">
+    <img src="https://api.star-history.com/svg?repos=R3CI/LimeV2-free&type=Date&theme=dark"">
+  </a>
 </p>
 
-## ⭐ Star history (vs popular discord raid tools from github)
 <p align="center">
-  <a href="https://star-history.com/#R3CI/LimeV2-free&Tips-Discord/Cwelium&Date&theme=dark">
-    <img src="https://api.star-history.com/svg?repos=R3CI/LimeV2-free,Tips-Discord/Cwelium&type=Date&theme=dark"">
-  </a>
+  <img src="https://repobeats.axiom.co/api/embed/e999038a6ca21d17aa45a3bdb0578f607e14f47c.svg">
 </p>
