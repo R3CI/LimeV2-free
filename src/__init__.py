@@ -84,7 +84,6 @@ try:
     import uuid
     from bs4 import BeautifulSoup
 except ModuleNotFoundError as e:
-    os.system(f'pip install {e.name}')
     for lib in [
         'requests',
         'uuid',
@@ -96,12 +95,5 @@ except ModuleNotFoundError as e:
         'beautifulsoup4'
     ]:
         os.system(f'pip install {lib}')
-        
-    os.system('cls')
-    import requests
-    import tls_client
-    from colorama import Back as B, Style as S
-    from datetime import datetime as dt
-    import ab5
-    import uuid
-    from bs4 import BeautifulSoup
+    os.system(f'pip install {e.name}')
+    messagebox.showinfo('Info', 'Got all libs please re open')
