@@ -33,7 +33,7 @@ class isinserver:
             self.check(token)
 
         elif 'Cloudflare' in r.text:
-            log.warn('Checker', f'{token[:30]}... >> CLOUDFLARE BLOCKED >> Waiting for 5 secs and retrying')
+            log.warn('Is in server', f'{token[:30]}... >> CLOUDFLARE BLOCKED >> Waiting for 5 secs and retrying')
             time.sleep(5)
             self.check(token)
 

@@ -38,7 +38,7 @@ class leaver:
             self.leave(token)
 
         elif 'Cloudflare' in r.text:
-            log.warn('Checker', f'{token[:30]}... >> CLOUDFLARE BLOCKED >> Waiting for 5 secs and retrying')
+            log.warn('Leaver', f'{token[:30]}... >> CLOUDFLARE BLOCKED >> Waiting for 5 secs and retrying')
             time.sleep(5)
             self.leave(token)
 
