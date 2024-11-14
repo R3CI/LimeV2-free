@@ -13,7 +13,7 @@ from src.modules.message_spammer import *
 from src.modules.checker import *
 
 auto_update()
-time.sleep(2.1)
+time.sleep(1.5)
 
 while True:
     ui().cls()
