@@ -44,4 +44,4 @@ while True:
     else:
         log.info('Main', 'That option does not exist yet', True)
 
-    log.info('Main', 'Finished! Enter to continue', True)
+    log.info('Main', 'Finished! Enter to continue | If you like the tool make sure to leave a vouch!', True)
