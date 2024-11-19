@@ -55,8 +55,8 @@ class display_changer:
         self.newdisplay = ui().ask('New display')
 
         thread(
-            files.getthreads(),
+            files().getthreads(),
             self.change,
-            files.gettokens(),
+            files().gettokens(),
             []
         )
