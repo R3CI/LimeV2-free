@@ -11,6 +11,8 @@ from src.modules.leaver import *
 from src.modules.isinserver import *
 from src.modules.message_spammer import *
 from src.modules.checker import *
+from src.modules.reaction import *
+from src.modules.display_changer import *
 
 auto_update()
 time.sleep(1.5)
@@ -37,11 +39,31 @@ while True:
         '9': log.premium_only,
         '10': log.premium_only,
         '11': checker().main,
+        '12': log.premium_only,
+        '13': log.premium_only,
+        '14': display_changer().main,
+        '15': log.premium_only,
+        '16': log.premium_only,
+        '17': reaction().main,
+        '18': log.premium_only,
+        '19': log.premium_only,
+        '20': log.premium_only,
+        '21': log.premium_only,
+        '22': log.premium_only,
+        '23': log.premium_only,
+        '24': log.premium_only,
+        '25': log.premium_only,
+        '26': log.premium_only,
+        '27': log.premium_only,
+        '28': log.premium_only,
+        '29': log.premium_only,
+        '30': log.premium_only,
     }
 
     if choice in options:
         options[choice]()
     else:
-        log.info('Main', 'That option does not exist yet', True)
+        log.info('Main', 'That option does not exist', True)
 
     log.info('Main', 'Finished! Enter to continue | If you like the tool make sure to leave a vouch!', True)
+

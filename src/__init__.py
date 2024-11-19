@@ -67,8 +67,7 @@ banner = f"""
 {r'/_____/_/_/ /_/ /_/____/   /_____/  /____/  '.center(size)}
 """
 print(ab5.vgratient(banner, [0, 255, 96], [128, 163, 91]))
-__INFLOG__('Main', 'Opened up discord (discord.gg/spamming)')
-webbrowser.open('https://discord.gg/spamming')
+__INFLOG__('Main', 'Launching!')
 __INFLOG__('Main', 'Checking file structure...')
 
 if os.path.abspath(__file__).startswith(os.path.join(os.path.expanduser('~'), 'Downloads')):

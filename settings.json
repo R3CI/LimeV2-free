@@ -1,6 +1,7 @@
 {
     "version": 1.0,
-    "advanced-mode": true,
+    "advanced-mode": false,
     "threads": 10,
-    "proxies": false
+    "proxies": false,
+    "opendiscord": true
 }

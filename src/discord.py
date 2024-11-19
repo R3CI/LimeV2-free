@@ -95,6 +95,32 @@ class discord:
         
         return []
 
+    def get_messages(self, channelid, tokens):
+        random.shuffle(tokens)
+        for token in tokens:
+            cl = client(token)
+            cl.headers['Authorization'] = token
+            r = sess.get(
+                f'https://discord.com/api/v9/channels/{channelid}/messages?limit=50',
+                headers=headers,
+                cookies=cookies
+            )
+
+            log.dbg('Get messages', r.text, r.status_code)
+
+            if r.status_code == 200:
+                return r.json()
+
+            elif 'retry_after' in r.text:
+                limit = r.json().get('retry_after', 1.5)
+                time.sleep(float(limit))
+                self.get_messages(channelid, tokens)
+
+            else:
+                continue
+
+        return {}
+
     def getid(self, token):
         period_pos = token.find('.')
         if period_pos != -1: cut = token[:period_pos]

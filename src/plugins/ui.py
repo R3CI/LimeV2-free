@@ -24,12 +24,12 @@ class ui:
 
     def menu(self):
         menu = f'''
-{'   Servers            Spamming             Tokens            Bypass             Annoying             Extra       '.center(self.size)}
-{'01 Joiner          06 Message spam     11 Checker         16 Onboarding      21 Mass Dm         26 User scraper  '.center(self.size)}
-{'02 Leaver          07 Threads spam     12 Avatar changer  17 Reaction        22 Spam call       27 ID scraper    '.center(self.size)}
-{'03 Is in server    08 Threads2 spam    13 Bio changer     18 Rules           23 Mass friend     28 Booster       '.center(self.size)}
-{'04 Anti ban        09 Poll spam        14 Disp changer    19 Button          24 Mass ticket     29 Token nuke    '.center(self.size)}
-{'05 Nick changer    10 Chat crasher     15 Humanizer       20 Restorecord     25 React bomb      30 Combo to token'.center(self.size)}
+{'   Servers            Spamming             Tokens            Bypass             Annoying              Extra           '.center(self.size)}
+{'01 Joiner (F)       06 Message spam (F) 11 Checker         16 Onboarding      21 Mass Dm         26 User scraper      '.center(self.size)}
+{'02 Leaver (F)       07 Threads spam     12 Avatar changer  17 Reaction (F)    22 Spam call       27 ID scraper        '.center(self.size)}
+{'03 Is in server (F) 08 Threads2 spam    13 Bio changer     18 Rules           23 Mass friend     28 Booster           '.center(self.size)}
+{'04 Anti ban         09 Poll spam        14 Disp change (F) 19 Button          24 Mass ticket     29 Token nuke        '.center(self.size)}
+{'05 Nick changer     10 Chat crasher     15 Humanizer       20 Restorecord     25 React bomb      30 Combo to token (F)'.center(self.size)}
 {'>> Next page'.center(self.size)}
 '''
         
@@ -63,3 +63,9 @@ class ui:
                 return False
         else:
             return input(f'{co.green}[{x}]{co.black} >> {S.RESET_ALL}')
+        
+    def make_menu(self, options):
+        for index, option in enumerate(options, 1):
+            print(f'{co.green}[{index:02d}]{co.black} >> {co.green}[{option}]{S.RESET_ALL}')
+
+        print('\n')

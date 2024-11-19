@@ -3,12 +3,13 @@ from src.plugins.log import *
 
 class files:
     def __init__(self):
-        self.settings_version = 1.0
+        self.settings_version = 1.1
         self.newest_settings = {
             'version': self.settings_version,
             'advanced-mode': True,
             'threads': 10,
-            'proxies': False
+            'proxies': False,
+            'opendiscord': True
         }
 
         self.dirs = [
@@ -91,3 +92,11 @@ class files:
         with open('settings.json', 'r') as f:
             setts = json.load(f)['threads']
         return setts
+    
+    def getopendiscord(self):
+        with open('settings.json', 'r') as f:
+            setts = json.load(f)['opendiscord']
+        return setts
+
+if files().getopendiscord():
+    webbrowser.open('https://discord.gg/spamming')
