@@ -115,17 +115,17 @@ class reaction:
 
         if self.dodebypass:
             thread(
-                files.getthreads(),
+                files().getthreads(),
                 self.debypass,
-                files.gettokens(),
+                files().gettokens(),
                 []
             )
 
         time.sleep(1)
 
         thread(
-            files.getthreads(),
+            files().getthreads(),
             self.bypass,
-            files.gettokens(),
+            files().gettokens(),
             []
         )
