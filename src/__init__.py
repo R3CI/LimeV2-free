@@ -19,6 +19,14 @@ import webbrowser
 import base64
 from io import BytesIO
 import zipfile
+import requests
+import tls_client
+from colorama import Back as B, Style as S
+from datetime import datetime as dt
+import ab5
+import uuid
+from bs4 import BeautifulSoup
+
 
 with open('output\\errors.txt', 'w') as f:
     f.write('')
@@ -39,61 +47,30 @@ class co:
     magenta = rgb(245, 0, 241)
     white = rgb(255, 255, 255)
 
-# yes again some shitty loading code but who cares
-try:
-    from colorama import Back as B, Style as S
-    from datetime import datetime as dt
-    import os
-    import ab5
-    def __INFLOG__(module, message, inp=False, ts=True):
-        if ts:
-            ts = f'{co.black}{dt.now().strftime("%H|%M|%S")} '
-        else:
-            ts = ''
-        if inp:
-            input(f'{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}')
-        else:
-            print(f'{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}')
+def __INFLOG__(module, message, inp=False, ts=True):
+    if ts:
+        ts = f'{co.black}{dt.now().strftime("%H|%M|%S")} '
+    else:
+        ts = ''
+    if inp:
+        input(f'{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}')
+    else:
+        print(f'{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}')
 
-    os.system('cls')
-    size = os.get_terminal_size().columns
-    banner = f"""
+os.system('cls')
+size = os.get_terminal_size().columns
+banner = f"""
 {r'    __    _                    __  __   ____'.center(size)}
 {r'   / /   (_)___ ___  ____     /  /  /  /__ /'.center(size)}
 {r'  / /   / / __ `__  / _  /   /  /  /  __/ / '.center(size)}
 {r' / /___/ / / / / / / ___/   /  /  /  / __/  '.center(size)}
 {r'/_____/_/_/ /_/ /_/____/   /_____/  /____/  '.center(size)}
 """
-    print(ab5.vgratient(banner, [0, 255, 96], [128, 163, 91]))
-    __INFLOG__('Main', 'Opened up discord (discord.gg/spamming)')
-    webbrowser.open('https://discord.gg/spamming')
-    __INFLOG__('Main', 'Checking file structure...')
-except:
-    pass
+print(ab5.vgratient(banner, [0, 255, 96], [128, 163, 91]))
+__INFLOG__('Main', 'Opened up discord (discord.gg/spamming)')
+webbrowser.open('https://discord.gg/spamming')
+__INFLOG__('Main', 'Checking file structure...')
 
 if os.path.abspath(__file__).startswith(os.path.join(os.path.expanduser('~'), 'Downloads')):
     messagebox.showinfo('Info', 'Script is inside of the downloads folder! Please move all files of lime to the desktop to avoid any issues!!')
     exit()
-
-try:
-    import requests
-    import tls_client
-    from colorama import Back as B, Style as S
-    from datetime import datetime as dt
-    import ab5
-    import uuid
-    from bs4 import BeautifulSoup
-except ModuleNotFoundError as e:
-    for lib in [
-        'requests',
-        'uuid',
-        'tls-client',
-        'typing-extensions',
-        'colorama',
-        'datetime',
-        'ab5',
-        'beautifulsoup4'
-    ]:
-        os.system(f'pip install {lib}')
-    os.system(f'pip install {e.name}')
-    messagebox.showinfo('Info', 'Got all libs please re open')
