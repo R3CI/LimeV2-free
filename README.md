@@ -1,7 +1,5 @@
-Keep in mind that some features are still being added
-
-<p align="center">
-  <img src="https://imgur.com/YVzaAvq.png" width="125" height="125">
+<p style="text-align: center;">
+  <img src="https://files.catbox.moe/almz51.gif" width="125" height="125" />
 </p>
 
 <p align="center">
