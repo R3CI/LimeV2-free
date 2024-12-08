@@ -8,6 +8,7 @@
   <img src="https://img.shields.io/github/issues/R3CI/LimeV2-free?style=flat-square&color=lightgreen">
   <img src="https://img.shields.io/github/v/release/R3CI/LimeV2-free?style=flat-square&color=lightgreen">
   <img src="https://img.shields.io/github/release-date/R3CI/LimeV2-free?style=flat-square&color=lightgreen">
+  <img src="https://img.shields.io/badge/CLICKME-90EE90?style=flat-square&logo=Youtube&label=Tutorial&cacheSeconds=5&link=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DJEpa3RBnn_I">
 </p>
 
 <p align="center">
