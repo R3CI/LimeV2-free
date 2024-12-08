@@ -93,7 +93,7 @@ class reaction:
         self.dodebypass = ui().ask('Do de bypass? (If the tokens alerdy reacted this will also first remove the rection so they get actualy verified again)', True)
 
         reacts = []
-        messages = discord().get_messages(self.channelid, files.gettokens())
+        messages = discord().get_messages(self.channelid, files().gettokens())
         for message in messages:
             if message['id'] == self.messageid:
                 for reaction in message['reactions']:

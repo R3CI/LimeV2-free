@@ -52,7 +52,7 @@ class message_spammer:
             log.dbg('Message spammer', r.text, r.status_code)
 
             if r.status_code == 200:
-                log.info('Message spammer', f'{token[:30]}... >> Sent >> {message[10:20]} >> In >> {self.channelid}')
+                log.info('Message spammer', f'{token[:30]}... >> In >> {self.channelid}')
                 continue
 
             elif 'retry_after' in r.text:
