@@ -29,7 +29,7 @@ class ui:
 {'02 Leaver (F)       07 Threads spam     12 Avatar changer  17 Reaction (F)    22 Spam call       27 ID scraper        '.center(self.size)}
 {'03 Is in server (F) 08 Threads2 spam    13 Bio changer     18 Rules           23 Mass friend     28 Booster           '.center(self.size)}
 {'04 Anti ban         09 Poll spam        14 Disp change (F) 19 Button          24 Mass ticket     29 Token nuke        '.center(self.size)}
-{'05 Nick changer     10 Chat crasher     15 Humanizer       20 Restorecord     25 React bomb      30 Combo to token (F)'.center(self.size)}
+{'05 Nick changer     10 Chat crasher     15 Humanizer       20 Restorecord     25 React bomb      30 Combo to token    '.center(self.size)}
 {'>> Next page'.center(self.size)}
 '''
         

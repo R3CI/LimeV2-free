@@ -1,5 +1,6 @@
 from src import *
 from src.plugins.log import *
+from src.plugins.files import *
 
 class auto_update:
     def __init__(self):
@@ -21,7 +22,20 @@ class auto_update:
                 with zipfile.ZipFile(zip_file, 'r') as zip_ref:
                     zip_ref.extractall(self.currentdir)
 
-                messagebox.showinfo('Info', f'Auto updated lime! Updated script can be found on {self.currentdir}\nMake sure to transfer ur proxies and tokens!')
+                try:
+                    with open(f'{self.currentdir}\\input\\tokens.txt', 'w') as f:
+                        f.write(files().gettokens())
+
+                    with open(f'{self.currentdir}\\input\\proxies.txt', 'w') as f:
+                        f.write(files().getproxies())
+
+                    with open(f'{self.currentdir}\\settings.json', 'w') as f:
+                        with open('settings.json', 'r') as f2:
+                            f.write(json.load(f2))
+                except:
+                    pass
+
+                messagebox.showinfo('Info', f'Auto updated lime! Updated script can be found on {self.currentdir}\nTokens, proxies, etc are auto converted!')
                 exit()
 
         else:
