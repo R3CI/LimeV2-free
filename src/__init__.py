@@ -1,5 +1,5 @@
 DBG = False
-VERSION = 2.12
+VERSION = 2.13
 
 import sys, os, traceback; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
 import json
@@ -31,7 +31,7 @@ try:
     from io import BytesIO
     import zipfile
 
-except:
+except ModuleNotFoundError:
     libs = [
         'uuid',
         'ab5',
@@ -57,6 +57,11 @@ except:
     from bs4 import BeautifulSoup
     from io import BytesIO
     import zipfile
+
+except Exception as e:
+    print('Failed to import modules')
+    print(e)
+    input('Enter to quit...')
 
 with open('output\\errors.txt', 'w') as f:
     f.write('')
