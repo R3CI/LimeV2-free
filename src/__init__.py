@@ -47,21 +47,13 @@ except ModuleNotFoundError:
     for lib in libs:
         os.system(f'pip install {lib}')
 
-    time.sleep(1)
+    print('Modules installed, PLEASE OPEN LIME AGAIN')
+    input('Enter to quit...')
 
 except Exception as e:
     print('Failed to import modules')
     print(e)
     input('Enter to quit...')
-
-import requests
-import tls_client
-from colorama import Back as B, Style as S
-from datetime import datetime as dt
-import ab5
-from bs4 import BeautifulSoup
-from io import BytesIO
-import zipfile
 
 with open('output\\errors.txt', 'w') as f:
     f.write('')
