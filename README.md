@@ -16,12 +16,12 @@
 </p>
   
 <p align="center">
-  <img src="https://r2.e-z.host/7c8e3bed-9eb6-4d91-a340-ae01365df446/s3h8l2rs.png">
+  <img src="https://r2.e-z.host/7c8e3bed-9eb6-4d91-a340-ae01365df446/z8im49o6.png">
 </p>
 
 <p align="center">
   <a href="https://star-history.com/#R3CI/LimeV2-free&Tips-Discord/Cwelium&Date&theme=dark">
-    <img src="https://api.star-history.com/svg?repos=R3CI/LimeV2-free&type=Date&theme=dark"">
+    <img src="https://api.star-history.com/svg?repos=R3CI/LimeV2-free&type=Date&theme=dark">
   </a>
 </p>
 

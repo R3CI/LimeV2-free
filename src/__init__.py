@@ -18,7 +18,6 @@ import io
 import tkinter as tk
 from tkinter import filedialog
 import webbrowser
-import flask
 import ctypes
 import base64
 
@@ -28,6 +27,9 @@ try:
     from colorama import Back as B, Style as S
     from datetime import datetime as dt
     import ab5
+    from bs4 import BeautifulSoup
+    from io import BytesIO
+    import zipfile
 
 except:
     os.system('pip install -r requirements.txt')
@@ -36,6 +38,9 @@ except:
     from colorama import Back as B, Style as S
     from datetime import datetime as dt
     import ab5
+    from bs4 import BeautifulSoup
+    from io import BytesIO
+    import zipfile
 
 with open('output\\errors.txt', 'w') as f:
     f.write('')
