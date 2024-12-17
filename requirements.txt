@@ -4,6 +4,7 @@ datetime
 colorama
 requests
 tls-client
+tls_client
 beautifulsoup4
 typing-extensions
 typing
