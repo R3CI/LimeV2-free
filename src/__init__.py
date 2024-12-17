@@ -1,5 +1,5 @@
 DBG = False
-VERSION = 2.11
+VERSION = 2.12
 
 import sys, os, traceback; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
 import json
@@ -32,7 +32,23 @@ try:
     import zipfile
 
 except:
-    os.system('pip install -r requirements.txt')
+    libs = [
+        'uuid',
+        'ab5',
+        'datetime',
+        'colorama',
+        'requests',
+        'tls-client',
+        'beautifulsoup4',
+        'typing-extensions',
+        'typing'
+    ]
+
+    for lib in libs:
+        os.system(f'pip install {lib}')
+
+    time.sleep(1)
+    
     import requests
     import tls_client
     from colorama import Back as B, Style as S
