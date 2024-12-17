@@ -1,7 +1,7 @@
 from src import *
 from src.plugins.log import *
 from src.plugins.ui import *
-from src.discord import *
+from src.dchelper import *
 from src.plugins.client import client
 from src.plugins.threads import * 
 from src.plugins.files import *
@@ -51,8 +51,8 @@ class isinserver:
         self.serverid = ui().ask('Server ID')
 
         thread(
-            files().getthreads(),
+            files.getthreads(),
             self.check,
-            files().gettokens(),
+            files.gettokens(),
             []
         )

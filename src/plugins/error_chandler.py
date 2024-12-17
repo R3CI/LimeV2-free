@@ -6,10 +6,10 @@ def log_errors(exctype, value, tb):
         error = ''.join(traceback.format_exception(exctype, value, tb))
         log.error('Error chandler', error, False)
         try:
-            with open('output\\errors.txt', 'a') as f:
+            with open('output\\errors.txt', 'a', encoding='utf-8') as f:
                 f.write(error)
         except:
-            with open('ERRORS.txt', 'a') as f:
+            with open('ERRORS.txt', 'a', encoding='utf-8') as f:
                 f.write(error)
 
         try:

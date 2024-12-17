@@ -2,7 +2,7 @@ from src import *
 from src.plugins.log import *
 from src.plugins.client import *
 
-class discord:
+class discordhelper:
     def __init__(self):
         pass
 
@@ -37,6 +37,7 @@ class discord:
     
     def get_server_acceses(self, serverid, tokens):
         acces = []
+        random.shuffle(tokens)
         for token in tokens:
             cl = client(token)
 
@@ -62,38 +63,6 @@ class discord:
                 continue
 
         return acces
-            
-    def get_server_channels(self, serverid, tokens):
-        channelids = []
-        random.shuffle(tokens)
-
-        for token in tokens:
-            cl = client(token)
-
-            cl.headers['Authorization'] = token
-
-            r = cl.sess.get(
-                f'https://discord.com/api/v9/guilds/{serverid}/channels',
-                headers=cl.headers,
-                cookies=cl.cookies
-            )
-
-            log.dbg('Get server channels', r.text, r.status_code)
-
-            if r.status_code == 200:
-                for channel in r.json():
-                    channelids.append(channel['id'])
-                return channelids
-
-            elif 'retry_after' in r.text:
-                limit = r.json().get('retry_after', 1.5)
-                time.sleep(float(limit))
-                self.get_server_channels(serverid, tokens)
-
-            else:
-                continue
-        
-        return []
 
     def get_messages(self, channelid, tokens):
         random.shuffle(tokens)
@@ -120,13 +89,6 @@ class discord:
                 continue
 
         return {}
-
-    def getid(self, token):
-        period_pos = token.find('.')
-        if period_pos != -1: cut = token[:period_pos]
-        id = base64.b64decode(cut + '==').decode()
-        log.dbg('Token to ID', id)
-        return id
 
     def getsnowflake(self):
         return ((int(time.time() * 1000) - 1420070400000) << 22)

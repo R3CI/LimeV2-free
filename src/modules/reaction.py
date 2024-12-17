@@ -1,7 +1,7 @@
 from src import *
 from src.plugins.log import *
 from src.plugins.ui import *
-from src.discord import *
+from src.dchelper import *
 from src.plugins.client import client
 from src.plugins.threads import * 
 from src.plugins.files import *
@@ -93,7 +93,7 @@ class reaction:
         self.dodebypass = ui().ask('Do de bypass? (If the tokens alerdy reacted this will also first remove the rection so they get actualy verified again)', True)
 
         reacts = []
-        messages = discord().get_messages(self.channelid, files().gettokens())
+        messages = discordhelper().get_messages(self.channelid, files.gettokens())
         for message in messages:
             if message['id'] == self.messageid:
                 for reaction in message['reactions']:
@@ -115,17 +115,17 @@ class reaction:
 
         if self.dodebypass:
             thread(
-                files().getthreads(),
+                files.getthreads(),
                 self.debypass,
-                files().gettokens(),
+                files.gettokens(),
                 []
             )
 
         time.sleep(1)
 
         thread(
-            files().getthreads(),
+            files.getthreads(),
             self.bypass,
-            files().gettokens(),
+            files.gettokens(),
             []
         )

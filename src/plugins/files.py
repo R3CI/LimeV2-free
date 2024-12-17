@@ -3,13 +3,15 @@ from src.plugins.log import *
 
 class files:
     def __init__(self):
-        self.settings_version = 1.1
+        self.settings_version = 2.0
         self.newest_settings = {
             'version': self.settings_version,
-            'advanced-mode': True,
+            'advanced-mode': False,
             'threads': 10,
             'proxies': False,
-            'opendiscord': True
+            'usesolver': False,
+            'solvertype (can use: csolver)': '',
+            'solverapikey': ''
         }
 
         self.dirs = [
@@ -32,6 +34,21 @@ class files:
         self.check()
         if not self.check_settings_update():
             self.update_settings()
+        
+        if self.getsolverapikey() or self.getsolverstatus():
+            log.info('Files', f'Solver support is PAID ONLY')
+
+        if self.getproxystatus():       
+            log.info('Files', 'Proxy support is PAID ONLY')
+
+        #if not self.getproxies() and self.getproxystatus():
+        #    messagebox.showerror('Info', 'Proxies ware enabled inside of settings.json but none are inside of input\\proxies.txt the code will not work properly please input proxies or disable proxies in settings.json')
+
+        #if not self.getsolverapikey() and self.getsolverstatus():
+        #    messagebox.showerror('Info', 'Solver is enabled inside of settings.json and u have not provided the api key inside of settings.json please provide the api key or disable solver in settings.json')
+
+        if not self.gettokens():
+            messagebox.showerror('Info', 'U did not input any tokens into input\\tokens.txt please input them in! (NOT DISCORD BOT TOKENS ACTUAL ACCOUNT TOKENS)')
 
     def check(self):
         for dir in self.dirs:
@@ -92,11 +109,25 @@ class files:
         with open('settings.json', 'r') as f:
             setts = json.load(f)['threads']
         return setts
-    
-    def getopendiscord(self):
+
+    def getsolverapikey(self):
         with open('settings.json', 'r') as f:
-            setts = json.load(f)['opendiscord']
+            setts = json.load(f)['solverapikey']
         return setts
 
-if files().getopendiscord():
-    webbrowser.open('https://discord.gg/spamming')
+    def getproxystatus(self):
+        with open('settings.json', 'r') as f:
+            setts = json.load(f)['proxies']
+        return setts
+    
+    def getsolvertype(self):
+        with open('settings.json', 'r') as f:
+            setts = json.load(f)['solvertype (can use: csolver)']
+        return setts
+
+    def getsolverstatus(self):  
+        with open('settings.json', 'r') as f:
+            setts = json.load(f)['usesolver']
+        return setts
+
+files = files()

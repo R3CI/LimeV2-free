@@ -3,7 +3,7 @@ from src import *
 class log:
     def basic(ts=False, color=co.white, message='None', type=None):
         if ts:
-            ts = f'{co.black}{dt.now().strftime("%H %M %S")}'
+            ts = f'{co.black}{dt.now().strftime('%H %M %S')}'
         else:
             ts = ''
 
@@ -25,50 +25,48 @@ class log:
         else:
             type = ' (*)'
 
-        print(f'{ts}{type} >> {color}{message}{S.RESET_ALL}')
+        print(f'{ts}{type} >> {color}{message}{S.RESET_ALL}\033[0m')
     
     def info(module, message, inp=False, ts=True):
         if ts:
-            ts = f'{co.black}{dt.now().strftime("%H|%M|%S")} '
+            ts = f'{co.black}{dt.now().strftime('%H|%M|%S')} '
         else:
             ts = ''
         if inp:
-            input(f'{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}')
+            input(f'\033[1m{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}\033[0m')
         else:
-            print(f'{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}')
+            print(f'\033[1m{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}\033[0m')
 
     def dbg(module, *message):
         if DBG:
             if len(message) == 1 and isinstance(message[0], str):
                 message = [message[0]]
             message = ' | '.join(map(str, message))
-            ts = f'{co.black}{dt.now().strftime("%H|%M|%S")}'
-            print(f'{ts} {co.yellow}[{module}]{co.black} >> {co.yellow}[{message}]{S.RESET_ALL}')
+            ts = f'{co.black}{dt.now().strftime('%H|%M|%S')}'
+            print(f'\033[1m{ts} {co.yellow}[{module}]{co.black} >> {co.yellow}[{message}]{S.RESET_ALL}\033[0m')
 
     def warn(module, message):
-        ts = f'{co.black}{dt.now().strftime("%H|%M|%S")}'
-        print(f'{ts} {co.orange}[{module}]{co.black} >> {co.orange}[{message}]{S.RESET_ALL}')
+        ts = f'{co.black}{dt.now().strftime('%H|%M|%S')}'
+        print(f'\033[1m{ts} {co.orange}[{module}]{co.black} >> {co.orange}[{message}]{S.RESET_ALL}\033[0m')
 
     def hcap(module, message):
-        ts = f'{co.black}{dt.now().strftime("%H|%M|%S")}'
-        print(f'{ts} {co.darkblue}[{module}]{co.black} >> {co.darkblue}[{message}]{S.RESET_ALL}')
+        ts = f'{co.black}{dt.now().strftime('%H|%M|%S')}'
+        print(f'\033[1m{ts} {co.darkblue}[{module}]{co.black} >> {co.darkblue}[{message}]{S.RESET_ALL}\033[0m')
 
     def error(module, message, ts=True):
         if not ts:
             ts = ''
         else:
-            ts = f'{co.black}{dt.now().strftime("%H|%M|%S")} '
-        print(f'{ts}{co.red}[{module}]{co.black} >> {co.red}[{message}]{S.RESET_ALL}')
+            ts = f'{co.black}{dt.now().strftime('%H|%M|%S')} '
+        print(f'\033[1m{ts}{co.red}[{module}]{co.black} >> {co.red}[{message}]{S.RESET_ALL}\033[0m')
         
     def critical(module, message):
-        ts = f'{co.black}{dt.now().strftime("%H|%M|%S")}'
-        print(f'{ts} {co.darkred}[{module}]{co.black} >> {co.darkred}[{message}]{S.RESET_ALL}')
+        ts = f'{co.black}{dt.now().strftime('%H|%M|%S')}'
+        print(f'\033[1m{ts} {co.darkred}[{module}]{co.black} >> {co.darkred}[{message}]{S.RESET_ALL}\033[0m')
 
     def premium_only():
-        print(f'{co.green}[Main]{co.black} >> {co.green}[This is a premium only feature]{S.RESET_ALL}')
-
-    def inwork():
-        print(f'{co.green}[Main]{co.black} >> {co.green}[This feature is in work]{S.RESET_ALL}')
+        print(f'\033[1m{co.green}[Main]{co.black} >> {co.green}[This is a premium only feature]{S.RESET_ALL}\033[0m')
+    
 
     def errordatabase(text):
         db = {

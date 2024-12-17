@@ -2,7 +2,7 @@ import re
 from src import *
 from src.plugins.log import *
 from src.plugins.ui import *
-from src.discord import *
+from src.dchelper import *
 from src.plugins.client import client
 from src.plugins.threads import * 
 from src.plugins.files import *
@@ -18,9 +18,9 @@ class message_spammer:
     def replacer(self, match):
         tag, number = match.group(1), match.group(2)
         if tag == 'emoji':
-            return discord().getemojis(int(number))
+            return discordhelper().getemojis(int(number))
         elif tag == 'str':
-            return discord().getstr(int(number))
+            return discordhelper().getstr(int(number))
         return ''
 
     def replace_tags(self, text):
@@ -36,7 +36,7 @@ class message_spammer:
             payload = {
                 'mobile_network_type': 'unknown',
                 'content': message,
-                'nonce': discord().getsnowflake(),
+                'nonce': discordhelper().getsnowflake(),
                 'tts': self.tts,
                 'flags': 0
             }
@@ -52,7 +52,7 @@ class message_spammer:
             log.dbg('Message spammer', r.text, r.status_code)
 
             if r.status_code == 200:
-                log.info('Message spammer', f'{token[:30]}... >> In >> {self.channelid}')
+                log.info('Message spammer', f'{token[:30]}... >> Sent >> {message[10:20]} >> In >> {self.channelid}')
                 continue
 
             elif 'retry_after' in r.text:
@@ -86,12 +86,14 @@ class message_spammer:
         log.info('Message spammer', 'Tags that you can use [[ping=10]] [[str=10]] [[emoji=10]]', False, False)   
         log.info('Message spammer', 'An example of what you would type now Raided [[ping=10]] [[str=10]] [[emoji=10]]', False, False)  
         log.info('Message spammer', 'Remembr the number after = is fully custom you could do 100 or 33 whatever u want', False, False)   
-        log.info('Message spammer', 'ping is paid only!!!', False, False)   
-        self.basemsg = ui().ask('Message') 
+        self.basemsg = ui().ask('Message')
+
+        if '[[ping=' in self.basemsg:
+            log.info('Message spammer', 'Mass ping is PAID ONLY', True, False)
 
         thread(
-            files().getthreads(),
+            files.getthreads(),
             self.send,
-            files().gettokens(),
+            files.gettokens(),
             []
         )

@@ -1,7 +1,9 @@
 {
-    "version": 1.1,
-    "advanced-mode": false,
+    "version": 2.0,
+    "advanced-mode": true,
     "threads": 10,
     "proxies": false,
-    "opendiscord": true
+    "usesolver": false,
+    "solvertype (can use: csolver)": "",
+    "solverapikey": ""
 }

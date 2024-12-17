@@ -1,7 +1,7 @@
 from src import *
 from src.plugins.log import *
 from src.plugins.ui import *
-from src.discord import *
+from src.dchelper import *
 from src.plugins.client import client
 from src.plugins.threads import * 
 from src.plugins.files import *
@@ -15,8 +15,9 @@ class joiner:
         self.invchannelid = None
         self.invchanneltype = None
 
-    def join(self, token):
-        cl = client(token)
+    def join(self, token, cl=None):
+        if cl is None:
+            cl = client(token)
 
         payload = {
             'session_id': uuid.uuid4().hex,
@@ -45,7 +46,7 @@ class joiner:
         log.dbg('Joiner', r.text, r.status_code)
 
         if r.status_code == 200:
-            log.info('Joiner', f'{token[:30]}... >> Joined >> {self.servername} ({self.serverid}) (discord.gg/{self.invite})')
+            log.info('Joiner', f'{token[:30]}... >> Joined >> {self.servername[:15]} ({self.serverid}) (discord.gg/{self.invite})')
 
         elif 'retry_after' in r.text:
             limit = r.json()['retry_after']
@@ -61,6 +62,8 @@ class joiner:
         elif 'captcha_key' in r.text:
             log.hcap('Joiner', f'{token[:30]}... >> HCAPTCHA')
 
+            self.join(token, cl)
+
         elif 'You need to verify' in r.text:
             log.critical('Joiner', f'{token[:30]}... >> LOCKED')
 
@@ -71,8 +74,8 @@ class joiner:
     
     def main(self):
         self.invite = ui().ask('Invite')
-        self.invite = discord().extract_invite(self.invite)
-        invinfo = discord().get_invite_info(self.invite)
+        self.invite = discordhelper().extract_invite(self.invite)
+        invinfo = discordhelper().get_invite_info(self.invite)
         if invinfo.get('guild', {}).get('vanity_url_code', None) is not None:
             self.vanity = True
 
@@ -83,8 +86,8 @@ class joiner:
         self.invchanneltype = invinfo.get('channel', {}).get('type', None)
 
         thread(
-            files().getthreads(),
+            files.getthreads(),
             self.join,
-            files().gettokens(),
+            files.gettokens(),
             []
         )

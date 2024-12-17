@@ -1,7 +1,6 @@
 import tls_client.exceptions
 from src import *
 from src.plugins.log import *
-from src.discord import *
 
 
 class thread:
@@ -9,23 +8,23 @@ class thread:
         self.maxworkers = int(thread_amt)
         self.func = func
         self.tokens = tokens
-        self.args = args
+        self.args: list = args
+        self.futures = []
         self.work()
 
     def work(self):
-        futures = []
         if self.tokens:
             with ThreadPoolExecutor(max_workers=self.maxworkers) as exe:
                 for token in self.tokens:
                     self.args.insert(0, token)
                     try:
                         future = exe.submit(self.func, *self.args)
-                        futures.append(future)
+                        self.futures.append(future)
                     except Exception as e:
                         log.error('Threads [main]', e)
                     self.args.remove(token)
 
-                for future in futures:
+                for future in self.futures:
                     try:
                         future.result()
                     except tls_client.exceptions.TLSClientExeption as e:
@@ -33,4 +32,4 @@ class thread:
                     except Exception as e:
                         log.error('Threads [result]', e)
         else:
-            log.warn('Threads [main]', 'Please input ur tokens into data\\tokens.txt')
+            log.warn('Threads [main]', 'Please input ur tokens into input\\tokens.txt')

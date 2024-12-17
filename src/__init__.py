@@ -1,5 +1,5 @@
 DBG = False
-VERSION = 2.09
+VERSION = 2.1
 
 import sys, os, traceback; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
 import json
@@ -12,21 +12,30 @@ import random
 from tkinter import messagebox
 from typing import cast
 import string
+import uuid
 import queue
+import io
 import tkinter as tk
 from tkinter import filedialog
 import webbrowser
+import flask
+import ctypes
 import base64
-from io import BytesIO
-import zipfile
-import requests
-import tls_client
-from colorama import Back as B, Style as S
-from datetime import datetime as dt
-import ab5
-import uuid
-from bs4 import BeautifulSoup
 
+try:
+    import requests
+    import tls_client
+    from colorama import Back as B, Style as S
+    from datetime import datetime as dt
+    import ab5
+
+except:
+    os.system('pip install -r requirements.txt')
+    import requests
+    import tls_client
+    from colorama import Back as B, Style as S
+    from datetime import datetime as dt
+    import ab5
 
 with open('output\\errors.txt', 'w') as f:
     f.write('')
@@ -46,30 +55,3 @@ class co:
     cyan = rgb(0, 245, 233)
     magenta = rgb(245, 0, 241)
     white = rgb(255, 255, 255)
-
-def __INFLOG__(module, message, inp=False, ts=True):
-    if ts:
-        ts = f'{co.black}{dt.now().strftime("%H|%M|%S")} '
-    else:
-        ts = ''
-    if inp:
-        input(f'{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}')
-    else:
-        print(f'{ts}{co.green}[{module}]{co.black} >> {co.green}[{message}]{S.RESET_ALL}')
-
-os.system('cls')
-size = os.get_terminal_size().columns
-banner = f"""
-{r'    __    _                    __  __   ____'.center(size)}
-{r'   / /   (_)___ ___  ____     /  /  /  /__ /'.center(size)}
-{r'  / /   / / __ `__  / _  /   /  /  /  __/ / '.center(size)}
-{r' / /___/ / / / / / / ___/   /  /  /  / __/  '.center(size)}
-{r'/_____/_/_/ /_/ /_/____/   /_____/  /____/  '.center(size)}
-"""
-print(ab5.vgratient(banner, [0, 255, 96], [128, 163, 91]))
-__INFLOG__('Main', 'Launching!')
-__INFLOG__('Main', 'Checking file structure...')
-
-if os.path.abspath(__file__).startswith(os.path.join(os.path.expanduser('~'), 'Downloads')):
-    messagebox.showinfo('Info', 'Script is inside of the downloads folder! Please move all files of lime to the desktop to avoid any issues!!')
-    exit()
