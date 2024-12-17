@@ -21,7 +21,7 @@ from src.modules.display_changer import *
 from src.modules.pron_changer import *
 from src.modules.reaction import *
 
-time.sleep(1.5)
+time.sleep(1)
 
 while True:
     ui().cls()

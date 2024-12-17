@@ -1,5 +1,5 @@
 DBG = False
-VERSION = 2.15
+VERSION = 2.16
 
 import sys, os, traceback; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
 import json
@@ -19,41 +19,22 @@ import tkinter as tk
 from tkinter import filedialog
 import webbrowser
 import ctypes
+
+if len(sys.argv) > 1:
+    pass
+else:
+    os.system('py START.py')
+    exit()
+
 import base64
-
-try:
-    import requests
-    import tls_client
-    from colorama import Back as B, Style as S
-    from datetime import datetime as dt
-    import ab5
-    from bs4 import BeautifulSoup
-    from io import BytesIO
-    import zipfile
-
-except ModuleNotFoundError:
-    libs = [
-        'uuid',
-        'ab5',
-        'datetime',
-        'colorama',
-        'requests',
-        'tls-client',
-        'beautifulsoup4',
-        'typing-extensions',
-        'typing'
-    ]
-
-    for lib in libs:
-        os.system(f'pip install {lib}')
-
-    print('Modules installed, PLEASE OPEN LIME AGAIN')
-    input('Enter to quit...')
-
-except Exception as e:
-    print('Failed to import modules')
-    print(e)
-    input('Enter to quit...')
+import requests
+import tls_client
+from colorama import Back as B, Style as S
+from datetime import datetime as dt
+import ab5
+from bs4 import BeautifulSoup
+from io import BytesIO
+import zipfile
 
 with open('output\\errors.txt', 'w') as f:
     f.write('')

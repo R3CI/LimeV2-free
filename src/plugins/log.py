@@ -3,7 +3,7 @@ from src import *
 class log:
     def basic(ts=False, color=co.white, message='None', type=None):
         if ts:
-            ts = f'{co.black}{dt.now().strftime('%H %M %S')}'
+            ts = f'{co.black}{dt.now().strftime("%H %M %S")}'
         else:
             ts = ''
 
@@ -29,7 +29,7 @@ class log:
     
     def info(module, message, inp=False, ts=True):
         if ts:
-            ts = f'{co.black}{dt.now().strftime('%H|%M|%S')} '
+            ts = f'{co.black}{dt.now().strftime("%H|%M|%S")} '
         else:
             ts = ''
         if inp:
@@ -42,26 +42,26 @@ class log:
             if len(message) == 1 and isinstance(message[0], str):
                 message = [message[0]]
             message = ' | '.join(map(str, message))
-            ts = f'{co.black}{dt.now().strftime('%H|%M|%S')}'
+            ts = f'{co.black}{dt.now().strftime("%H|%M|%S")}'
             print(f'\033[1m{ts} {co.yellow}[{module}]{co.black} >> {co.yellow}[{message}]{S.RESET_ALL}\033[0m')
 
     def warn(module, message):
-        ts = f'{co.black}{dt.now().strftime('%H|%M|%S')}'
+        ts = f'{co.black}{dt.now().strftime("%H|%M|%S")}'
         print(f'\033[1m{ts} {co.orange}[{module}]{co.black} >> {co.orange}[{message}]{S.RESET_ALL}\033[0m')
 
     def hcap(module, message):
-        ts = f'{co.black}{dt.now().strftime('%H|%M|%S')}'
+        ts = f'{co.black}{dt.now().strftime("%H|%M|%S")}'
         print(f'\033[1m{ts} {co.darkblue}[{module}]{co.black} >> {co.darkblue}[{message}]{S.RESET_ALL}\033[0m')
 
     def error(module, message, ts=True):
         if not ts:
             ts = ''
         else:
-            ts = f'{co.black}{dt.now().strftime('%H|%M|%S')} '
+            ts = f'{co.black}{dt.now().strftime("%H|%M|%S")} '
         print(f'\033[1m{ts}{co.red}[{module}]{co.black} >> {co.red}[{message}]{S.RESET_ALL}\033[0m')
         
     def critical(module, message):
-        ts = f'{co.black}{dt.now().strftime('%H|%M|%S')}'
+        ts = f'{co.black}{dt.now().strftime("%H|%M|%S")}'
         print(f'\033[1m{ts} {co.darkred}[{module}]{co.black} >> {co.darkred}[{message}]{S.RESET_ALL}\033[0m')
 
     def premium_only():
