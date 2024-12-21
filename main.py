@@ -32,6 +32,9 @@ while True:
 
     choice = ui().ask('Choice')
 
+    if choice.startswith('0') and len(choice) == 2:
+        choice = str(int(choice))
+
     options = {
         '>>': lambda: (ui().menu2(), ui().ask('Choice')),
         '1': joiner().main,

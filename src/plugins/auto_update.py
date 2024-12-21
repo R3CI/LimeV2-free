@@ -35,6 +35,7 @@ class auto_update:
                 except:
                     pass
 
+                os.startfile(self.currentdir)
                 messagebox.showinfo('Info', f'Auto updated lime! Updated script can be found on {self.currentdir}\nTokens, proxies, etc are auto converted!')
                 exit()
 

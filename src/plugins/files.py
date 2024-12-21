@@ -48,7 +48,7 @@ class files:
         #    messagebox.showerror('Info', 'Solver is enabled inside of settings.json and u have not provided the api key inside of settings.json please provide the api key or disable solver in settings.json')
 
         if not self.gettokens():
-            messagebox.showerror('Info', 'U did not input any tokens into input\\tokens.txt please input them in! (NOT DISCORD BOT TOKENS ACTUAL ACCOUNT TOKENS)')
+            messagebox.showerror('Info', 'U did not input any tokens into input\\tokens.txt please input them in! (NOT DISCORD BOT TOKENS ACTUAL ACCOUNT TOKENS) run /tokens command on my server to get more info')
 
     def check(self):
         for dir in self.dirs:
@@ -90,9 +90,14 @@ class files:
             pass
 
     def gettokens(self):
+        tokens = []
         with open('input\\tokens.txt', 'r') as f:
-            tokens = f.read().splitlines()
+            tokens_ = f.read().splitlines()
         
+        for token_ in tokens_:
+            token = ''.join(c for c in token_ if c in set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_. '))
+            tokens.append(token)
+
         random.shuffle(tokens)
         log.dbg('Files', tokens)
         return tokens

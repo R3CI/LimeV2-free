@@ -1,5 +1,9 @@
 import os
 import time
+import webbrowser
+if not os.path.exists('src\\wasran.txt'):
+    webbrowser.open('https://www.youtube.com/watch?v=JEpa3RBnn_I&t')
+open('src\\wasran.txt', 'w').write('Was ran!!!! discord.gg/spamming best lime op v2 2024 best tool fortnite free feet')
 
 try:
     import requests
